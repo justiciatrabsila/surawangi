@@ -13,12 +13,19 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class ContactResource extends Resource
 {
     protected static ?string $model = Contact::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'bi-phone';
+
+    protected static ?string $navigationLabel = 'Kontak';
+
+    protected static string|UnitEnum|null $navigationGroup = "Website";
+
+    protected static ?string $modelLabel = 'Kontak';
 
     protected static ?string $recordTitleAttribute = 'platform';
 

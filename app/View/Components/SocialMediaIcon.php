@@ -15,7 +15,8 @@ class SocialMediaIcon extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public SocialMedia $social) {
+    public function __construct(public SocialMedia $social)
+    {
         $this->className = $this->getClassName();
         $this->icon = $this->getIcon();
     }
@@ -40,7 +41,7 @@ class SocialMediaIcon extends Component
         return $classes[$this->social->platform];
     }
 
-    protected function getIcon() {
+    protected function getIcon()
     {
         $icon = [
             'instagram' => 'bi-instagram',
@@ -50,6 +51,5 @@ class SocialMediaIcon extends Component
             'youtube' => 'bi-youtube'
         ];
         return $icon[$this->social->platform];
-    }
     }
 }

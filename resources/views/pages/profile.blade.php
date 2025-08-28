@@ -185,46 +185,15 @@
                 </h2>
 
                 <div class="flex justify-between bg-white p-4 lg:p-6 rounded-xl shadow-lg">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-gray-700 text-sm lg:text-base">Email</p>
-                            <p class="text-gray-600 text-xs lg:text-sm">redaksi@bwipost.id</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-3">
-                        <x-button size="icon" asChild>
+                    @foreach ($contacts as $contact)
+                        <div class="flex items-center gap-3">
+                            <x-icon.contact-icon :contact="$contact" />
                             <div>
-                                @svg('heroicon-o-phone')
+                                <p class="font-semibold text-gray-700 text-sm lg:text-base">{{ ucwords($contact->platform) }}</p>
+                                <p class="text-gray-600 text-xs lg:text-sm">{{ $contact->contact }}</p>
                             </div>
-                        </x-button>
-                        <div>
-                            <p class="font-semibold text-gray-700 text-sm lg:text-base">Telepon</p>
-                            <p class="text-gray-600 text-xs lg:text-sm">(021) 123-4567</p>
                         </div>
-                    </div>
-
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-gray-700 text-sm lg:text-base">Alamat</p>
-                            <p class="text-gray-600 text-xs lg:text-sm">Jl. Media Raya No. 123<br>Jakarta Pusat
-                                10350</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </section>
         @endif
@@ -242,7 +211,7 @@
                         <div class="bg-white p-4 lg:p-6 rounded-xl shadow-lg">
                             <div class="flex items-center gap-4 mb-4">
                                 @if ($achievement->image)
-                                    <img src="{{ asset("storage/$achievement->image") }}" />
+                                    <img src="{{ asset("storage/$achievement->image") }}" class="object-cover w-12 h-12 lg:w-16 lg:h-16 rounded-full" />
                                 @else
                                     <x-button class="!size-12 !lg:size-16 !rounded-full !bg-blue-500" asChild>
                                         <div>

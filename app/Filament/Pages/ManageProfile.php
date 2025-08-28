@@ -45,13 +45,6 @@ class ManageProfile extends SettingsPage
                     ])
                     ->columnSpanFull()
                     ->collapsible(),
-
-                Section::make('Tim Redaksi')
-                    ->schema([
-                        
-                    ])
-                    ->columnSpanFull()
-                    ->collapsible()
             ]);
     }
 }
