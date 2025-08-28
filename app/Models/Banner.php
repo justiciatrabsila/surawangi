@@ -15,6 +15,7 @@ class Banner extends Model
         'cta_url',
         'cta_text',
         'is_active',
+        'page_type'
     ];
 
     protected $hidden = [
