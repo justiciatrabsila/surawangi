@@ -12,4 +12,4 @@
     <div {{ $attributes }}>
         {{ $slot }}
     </div>
-@endif
+    @endif

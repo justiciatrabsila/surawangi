@@ -11,10 +11,11 @@
         <meta name="description" content="@yield('description')">
     @endif
 
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/surawangi.png') }}">
+<link rel="apple-touch-icon" href="{{ asset('assets/img/surawangi.png') }}">
+<link rel="icon" type="image/png" href="{{ asset('assets/img/surawangi.png') }}" sizes="16x16">
+<link rel="icon" type="image/png" href="{{ asset('assets/img/surawangi.png') }}" sizes="32x32">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 
     @hasSection('title')

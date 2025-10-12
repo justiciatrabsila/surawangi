@@ -2,9 +2,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             <div>
-                <h3 class="text-lg font-bold mb-4">BWIpost.id</h3>
+                <h3 class="text-lg font-bold mb-4">SURAWANGI</h3>
                 <p class="text-gray-300 text-sm leading-relaxed mb-4">
-                    Portal berita terpercaya yang menghadirkan informasi akurat dan objektif dari seluruh Indonesia.
+                    Portal berita terpercaya yang menyajikan informasi akurat, objektif, dan terkini seputar DPRD Kabupaten Banyuwangi.
+                    Dikelola oleh Siswa SMKN 1 Banyuwangi Jurusan PPLG, kami berkomitmen menghadirkan jurnalisme digital yang transparan, informatif, dan berintegritas dalam meliput berbagai kegiatan, kebijakan, serta aspirasi masyarakat melalui lembaga DPRD.
+                    Surawangi hadir sebagai jembatan informasi antara rakyat dan wakil rakyat, dengan semangat profesionalisme dan teknologi.
                 </p>
                 @if (!$socialMedias->isEmpty())
                     <div class="flex space-x-3">

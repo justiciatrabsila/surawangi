@@ -32,6 +32,9 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->brandName('Surawangi')
+            ->brandLogo(asset('assets/img/surawangi.png'))
+            ->brandLogoHeight('2rem')
             ->colors([
                 'primary' => Color::Blue,
             ])

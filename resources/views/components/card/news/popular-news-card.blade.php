@@ -8,6 +8,6 @@
             class="stretched-link text-xs sm:text-sm font-semibold hover:text-primary cursor-pointer mb-1 transition-colors line-clamp-2">
             {{ $post->title }}
         </a>
-        <div class="text-xs text-gray-600">{{ \Illuminate\Support\Number::forHumans($post->views) }} pembaca • {{ $post->published_at->diffForHumans(); }}</div>
+        <div class="text-xs text-gray-600">{{ \Illuminate\Support\Number::forHumans($post->views) }} pembaca • {{ $post->published_at->diffForHumans() }}</div>
     </div>
 </article>

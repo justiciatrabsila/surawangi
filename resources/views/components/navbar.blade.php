@@ -4,7 +4,7 @@
             <div class="flex items-center justify-between py-4">
                 <!-- Logo -->
                 <div class="flex-shrink-0">
-                    <img src="{{ asset('assets/img/logo-remove.png') }}" alt="BWIpost.id"
+                    <img src="{{ asset('assets/img/surawangi.png') }}" alt="SURAWANGI"
                         class="w-auto h-10 object-contain hover:scale-105 transition-transform duration-300">
                 </div>
 

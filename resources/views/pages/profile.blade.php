@@ -37,7 +37,7 @@
             </div>
 
             <div class="space-y-4">
-                <img src="{{ asset('assets/img/banjir.jpg') }}" alt="Tim BWIpost.id"
+                <img src="{{ asset('assets/img/berempat.png') }}" alt="Tim BWIpost.id"
                     class="w-full h-64 lg:h-96 object-cover rounded-xl shadow-lg">
 
                 <!-- Statistics Cards -->
@@ -67,7 +67,7 @@
             <section class="mb-8 lg:mb-12">
                 <h2
                     class="text-xl lg:text-3xl font-bold text-navy border-b-4 border-primary pb-2 lg:pb-3 inline-block mb-6 lg:mb-8">
-                    Tim Redaksi BWIpost.id
+                    Tim Redaksi BERITAPOST.id
                 </h2>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">

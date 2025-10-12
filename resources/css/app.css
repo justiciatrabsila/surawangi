@@ -2,7 +2,7 @@
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
-@source '../../app/View/Components/**/*.php'
+@source '../../app/View/Components/**/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
@@ -87,36 +87,50 @@
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
-  --color-primary: #dc2626;
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: #1e40af;
-  --color-secondary-foreground: var(--secondary-foreground);
+
+  /* Tema Biru Modern - Gradient dari Deep Blue ke Electric Blue */
+  --color-primary: #1E40AF; /* Deep Blue - professional & powerful */
+  --color-primary-foreground: #F0F9FF; /* Light blue tint untuk contrast */
+  --color-secondary: #3B82F6; /* Bright Blue - energetic & modern */
+  --color-secondary-foreground: #FFFFFF;
+
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
+
+  /* Accent dengan Sky Blue untuk pop of color */
+  --color-accent: #0EA5E9; /* Sky Blue - fresh & attractive */
+  --color-accent-foreground: #FFFFFF;
+
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
+
+  /* Ring dengan cyan untuk modern feel */
+  --color-ring: #06B6D4; /* Cyan - untuk focus states yang menarik */
+
+  /* Chart colors dengan blue spectrum yang harmonis */
+  --color-chart-1: #3B82F6; /* Bright Blue */
+  --color-chart-2: #0EA5E9; /* Sky Blue */
+  --color-chart-3: #06B6D4; /* Cyan */
+  --color-chart-4: #6366F1; /* Indigo */
+  --color-chart-5: #8B5CF6; /* Purple - untuk variety */
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Sidebar dengan deep blue theme */
+  --color-sidebar: #1E3A8A; /* Navy Blue - elegant sidebar */
+  --color-sidebar-foreground: #F0F9FF;
+  --color-sidebar-primary: #3B82F6; /* Bright Blue accent */
+  --color-sidebar-primary-foreground: #FFFFFF;
+  --color-sidebar-accent: #1E40AF; /* Hover states */
+  --color-sidebar-accent-foreground: #F0F9FF;
+  --color-sidebar-border: #1E40AF;
+  --color-sidebar-ring: #0EA5E9;
+
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
 
