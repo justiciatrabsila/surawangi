@@ -3,237 +3,186 @@
 @section('title', 'Profil')
 
 @section('content')
-    <x-navbar />
+<x-navbar />
 
-    @if (!empty($carousel))
-        <x-carousel.carousel :carousel="$carousel" />
-    @endif
+@if (!empty($carousel))
+    <x-carousel.carousel :carousel="$carousel" />
+@endif
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-12">
-        <!-- About Section -->
-        <section class="mb-8 lg:mb-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-            <div class="space-y-4 lg:space-y-6">
-                <h2 class="text-2xl lg:text-4xl font-bold text-navy">
-                    Visi dan Misi
-                </h2>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-                <div class="space-y-4">
-                    <div class="bg-white p-4 lg:p-6 rounded-xl shadow-lg">
-                        <h3 class="text-lg lg:text-xl font-bold text-primary mb-3">Visi</h3>
-                        <p class="text-gray-700 leading-relaxed text-sm lg:text-base">
-                            Menjadi portal berita online terdepan dan terpercaya di Indonesia yang memberikan
-                            informasi
-                            berkualitas, akurat, dan berimbang untuk mencerdaskan bangsa.
-                        </p>
-                    </div>
-
-                    <div class="bg-white p-4 lg:p-6 rounded-xl shadow-lg">
-                        <h3 class="text-lg lg:text-xl font-bold text-primary mb-3">Misi</h3>
-                        <section class="text-gray-700 space-y-2 text-sm lg:text-base">
-                            {!! str($profile->mission)->sanitizeHtml() !!}
-                        </section>
-                    </div>
-                </div>
-            </div>
-
-            <div class="space-y-4">
-                <img src="{{ asset('assets/img/berempat.png') }}" alt="Tim BWIpost.id"
-                    class="w-full h-64 lg:h-96 object-cover rounded-xl shadow-lg">
-
-                <!-- Statistics Cards -->
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="stat-card bg-white p-4 rounded-xl shadow-lg text-center">
-                        <div class="text-2xl lg:text-3xl font-bold text-primary">5+</div>
-                        <div class="text-xs lg:text-sm text-gray-600">Tahun Pengalaman</div>
-                    </div>
-                    <div class="stat-card bg-white p-4 rounded-xl shadow-lg text-center">
-                        <div class="text-2xl lg:text-3xl font-bold text-primary">10K+</div>
-                        <div class="text-xs lg:text-sm text-gray-600">Artikel Dipublikasi</div>
-                    </div>
-                    <div class="stat-card bg-white p-4 rounded-xl shadow-lg text-center">
-                        <div class="text-2xl lg:text-3xl font-bold text-primary">50K+</div>
-                        <div class="text-xs lg:text-sm text-gray-600">Pembaca Aktif</div>
-                    </div>
-                    <div class="stat-card bg-white p-4 rounded-xl shadow-lg text-center">
-                        <div class="text-2xl lg:text-3xl font-bold text-primary">8</div>
-                        <div class="text-xs lg:text-sm text-gray-600">Kategori Berita</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Team Section -->
-        @if (!$staffs->isEmpty())
-            <section class="mb-8 lg:mb-12">
-                <h2
-                    class="text-xl lg:text-3xl font-bold text-navy border-b-4 border-primary pb-2 lg:pb-3 inline-block mb-6 lg:mb-8">
-                    Tim Redaksi BERITAPOST.id
-                </h2>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-                    @foreach ($staffs as $staff)
-                        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                            <img src="{{ asset("storage/$staff->photo") }}" alt="{{ $staff->position }}"
-                                class="w-full h-48 object-cover">
-                            <div class="p-4 text-center">
-                                <h3 class="font-bold mb-1 text-sm lg:text-base">{{ $staff->name }}</h3>
-                                <p class="text-primary text-xs lg:text-sm font-medium mb-2">{{ $staff->position }}</p>
-                                <p class="text-gray-600 text-xs">
-                                    {{ $staff->bio }}
-                                </p>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </section>
-        @endif
-
-        <!-- Values & Principles -->
-        <div class="mb-8 lg:mb-12">
-            <h2
-                class="text-xl lg:text-3xl font-bold text-navy border-b-4 border-primary pb-2 lg:pb-3 inline-block mb-6 lg:mb-8">
-                Nilai & Prinsip Kerja
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="mb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+            <h2 class="text-3xl lg:text-4xl font-extrabold text-gray-900 mb-6 border-l-8 border-primary pl-4">
+                Visi & Misi Surawangi
             </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-                <div class="bg-white p-4 lg:p-6 rounded-xl shadow-lg">
-                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4 mx-auto">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                        </svg>
-                    </div>
-                    <h3 class="font-bold text-navy text-center mb-2 text-sm lg:text-base">Integritas</h3>
-                    <p class="text-gray-700 text-center text-xs lg:text-sm leading-relaxed">
-                        Menjunjung tinggi kejujuran dan transparansi dalam setiap pemberitaan yang kami sajikan.
+            <div class="space-y-6">
+                <div class="bg-white/95 border border-gray-100 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <h3 class="flex items-center gap-2 text-xl font-semibold text-primary mb-2">
+                        @svg('heroicon-o-eye', 'w-6 h-6') <span>Visi</span>
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Menjadi portal berita online terdepan dan terpercaya di Indonesia yang memberikan informasi
+                        berkualitas, akurat, dan berimbang untuk mencerdaskan bangsa.
                     </p>
                 </div>
 
-                <div class="bg-white p-4 lg:p-6 rounded-xl shadow-lg">
-                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4 mx-auto">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
+                <div class="bg-white/95 border border-gray-100 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <h3 class="flex items-center gap-2 text-xl font-semibold text-primary mb-2">
+                        @svg('heroicon-o-light-bulb', 'w-6 h-6') <span>Misi</span>
+                    </h3>
+                    <div class="text-gray-700 leading-relaxed space-y-2">
+                        {!! str($profile->mission)->sanitizeHtml() !!}
                     </div>
-                    <h3 class="font-bold text-navy text-center mb-2 text-sm lg:text-base">Akurasi</h3>
-                    <p class="text-gray-700 text-center text-xs lg:text-sm leading-relaxed">
-                        Memastikan setiap informasi yang disajikan telah melalui proses verifikasi yang ketat.
-                    </p>
-                </div>
-
-                <div class="bg-white p-4 lg:p-6 rounded-xl shadow-lg">
-                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4 mx-auto">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
-                    </div>
-                    <h3 class="font-bold text-navy text-center mb-2 text-sm lg:text-base">Berimbang</h3>
-                    <p class="text-gray-700 text-center text-xs lg:text-sm leading-relaxed">
-                        Menyajikan berbagai sudut pandang untuk memberikan informasi yang objektif dan berimbang.
-                    </p>
-                </div>
-
-                <div class="bg-white p-4 lg:p-6 rounded-xl shadow-lg">
-                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4 mx-auto">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <h3 class="font-bold text-navy text-center mb-2 text-sm lg:text-base">Aktual</h3>
-                    <p class="text-gray-700 text-center text-xs lg:text-sm leading-relaxed">
-                        Mengutamakan kecepatan penyampaian informasi tanpa mengorbankan kualitas dan akurasi.
-                    </p>
-                </div>
-
-                <div class="bg-white p-4 lg:p-6 rounded-xl shadow-lg">
-                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4 mx-auto">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                        </svg>
-                    </div>
-                    <h3 class="font-bold text-navy text-center mb-2 text-sm lg:text-base">Humanis</h3>
-                    <p class="text-gray-700 text-center text-xs lg:text-sm leading-relaxed">
-                        Mengutamakan nilai-nilai kemanusiaan dalam setiap pemberitaan yang kami publikasikan.
-                    </p>
-                </div>
-
-                <div class="bg-white p-4 lg:p-6 rounded-xl shadow-lg">
-                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4 mx-auto">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                    </div>
-                    <h3 class="font-bold text-navy text-center mb-2 text-sm lg:text-base">Inovatif</h3>
-                    <p class="text-gray-700 text-center text-xs lg:text-sm leading-relaxed">
-                        Terus berinovasi dalam penyajian berita dengan memanfaatkan teknologi terkini.
-                    </p>
                 </div>
             </div>
         </div>
 
-        <!-- Contact Information -->
-        @if (!$contacts->isEmpty())
-            <section class="mb-8 lg:mb-12">
-                <h2
-                    class="text-xl lg:text-3xl font-bold text-navy border-b-4 border-primary pb-2 lg:pb-3 inline-block mb-6 lg:mb-8">
-                    Hubungi Kami
-                </h2>
+        <div class="space-y-6">
+            <img src="{{ asset('assets/img/berempat.png') }}" alt="Tim Surawangi"
+                class="w-full h-80 object-cover rounded-2xl shadow-2xl hover:scale-[1.02] transition-transform duration-300">
 
-                <div class="flex justify-between bg-white p-4 lg:p-6 rounded-xl shadow-lg">
-                    @foreach ($contacts as $contact)
-                        <div class="flex items-center gap-3">
-                            <x-icon.contact-icon :contact="$contact" />
-                            <div>
-                                <p class="font-semibold text-gray-700 text-sm lg:text-base">{{ ucwords($contact->platform) }}</p>
-                                <p class="text-gray-600 text-xs lg:text-sm">{{ $contact->contact }}</p>
-                            </div>
-                        </div>
-                    @endforeach
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div class="bg-gradient-to-br from-primary to-accent text-white rounded-xl p-5 text-center shadow-lg">
+                    <div class="text-3xl font-bold">5+</div>
+                    <div class="text-xs opacity-90">Tahun Pengalaman</div>
                 </div>
-            </section>
-        @endif
-
-        <!-- Achievement Section -->
-        @if (!$achievements->isEmpty())
-            <section class="mb-8 lg:mb-12">
-                <h2
-                    class="text-xl lg:text-3xl font-bold text-navy border-b-4 border-primary pb-2 lg:pb-3 inline-block mb-6 lg:mb-8">
-                    Pencapaian & Penghargaan
-                </h2>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
-                    @foreach ($achievements as $achievement)
-                        <div class="bg-white p-4 lg:p-6 rounded-xl shadow-lg">
-                            <div class="flex items-center gap-4 mb-4">
-                                @if ($achievement->image)
-                                    <img src="{{ asset("storage/$achievement->image") }}" class="object-cover w-12 h-12 lg:w-16 lg:h-16 rounded-full" />
-                                @else
-                                    <x-button class="!size-12 !lg:size-16 !rounded-full !bg-blue-500" asChild>
-                                        <div>
-                                            @svg('bi-trophy')
-                                        </div>
-                                    </x-button>
-                                @endif
-
-                                <div>
-                                    <h3 class="font-bold text-sm lg:text-base">{{ $achievement->title }}</h3>
-                                    <p class="text-gray-600 text-xs lg:text-sm">{{ $achievement->organizer }}</p>
-                                </div>
-                            </div>
-                            <p class="text-gray-700 text-xs lg:text-sm">
-                                {{ $achievement->description }}
-                            </p>
-                        </div>
-                    @endforeach
+                <div class="bg-white border border-gray-200 rounded-xl p-5 text-center shadow-sm hover:shadow-md transition">
+                    <div class="text-3xl font-bold text-primary">10K+</div>
+                    <div class="text-xs text-gray-600">Artikel Dipublikasi</div>
                 </div>
-            </section>
-        @endif
-    </main>
+                <div class="bg-white border border-gray-200 rounded-xl p-5 text-center shadow-sm hover:shadow-md transition">
+                    <div class="text-3xl font-bold text-primary">50K+</div>
+                    <div class="text-xs text-gray-600">Pembaca Aktif</div>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-5 text-center shadow-sm hover:shadow-md transition">
+                    <div class="text-3xl font-bold text-primary">8</div>
+                    <div class="text-xs text-gray-600">Kategori Berita</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <x-footer />
+   <!-- ===== TEAM SECTION (Fixed 4 Columns & Square Image) ===== -->
+@if (!$staffs->isEmpty())
+<section class="mb-24">
+    <h2 class="text-3xl font-extrabold text-gray-900 border-l-8 border-primary pl-4 mb-10">
+        Tim Redaksi Surawangi
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        @foreach ($staffs as $staff)
+        <div
+            class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group flex flex-col items-center text-center p-5 hover:-translate-y-1.5">
+
+            <!-- Foto -->
+            <div class="relative w-full h-56 rounded-xl overflow-hidden shadow-md mb-4 group-hover:scale-[1.03] transition-transform duration-300">
+                <img src="{{ asset("storage/$staff->photo") }}" alt="{{ $staff->position }}"
+                    class="w-full h-full object-cover">
+            </div>
+
+            <!-- Info -->
+            <div class="flex-1 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-gray-900">{{ $staff->name }}</h3>
+                    <p class="text-primary text-xs font-medium mb-2 uppercase tracking-wide">{{ $staff->position }}</p>
+                    <p class="text-gray-600 text-sm leading-relaxed line-clamp-3">
+                        {{ $staff->bio }}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Accent line -->
+            <div class="mt-4 h-1 w-10 bg-primary rounded-full group-hover:w-16 transition-all duration-300"></div>
+        </div>
+        @endforeach
+    </div>
+</section>
+@endif
+
+    <!-- ===== VALUES SECTION ===== -->
+    <section class="mb-20">
+        <h2 class="text-3xl font-extrabold text-gray-900 border-l-8 border-primary pl-4 mb-10">
+            Nilai & Prinsip Kerja
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            @php
+                $values = [
+                    ['Integritas', 'Menjunjung tinggi kejujuran dan transparansi dalam setiap pemberitaan.', 'heroicon-o-shield-check'],
+                    ['Akurasi', 'Memastikan setiap informasi melalui proses verifikasi yang ketat.', 'heroicon-o-magnifying-glass'],
+                    ['Berimbang', 'Menyajikan berbagai sudut pandang secara objektif dan adil.', 'heroicon-o-scale'],
+                    ['Aktual', 'Mengutamakan kecepatan tanpa mengorbankan kualitas.', 'heroicon-o-clock'],
+                    ['Humanis', 'Mengutamakan nilai kemanusiaan dalam setiap berita.', 'heroicon-o-heart'],
+                    ['Inovatif', 'Terus berinovasi dengan teknologi terkini.', 'heroicon-o-bolt'],
+                ];
+            @endphp
+
+            @foreach ($values as [$title, $desc, $icon])
+            <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all transform hover:-translate-y-2 text-center">
+                <div class="w-14 h-14 mx-auto mb-4 flex items-center justify-center bg-primary text-white rounded-xl shadow-md">
+                    @svg($icon, 'w-7 h-7')
+                </div>
+                <h3 class="font-bold text-navy text-lg mb-2">{{ $title }}</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">{{ $desc }}</p>
+            </div>
+            @endforeach
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    @if (!$contacts->isEmpty())
+    <section class="mb-20">
+        <h2 class="text-3xl font-extrabold text-gray-900 border-l-8 border-primary pl-4 mb-10">
+            Hubungi Kami
+        </h2>
+
+        <div class="bg-white rounded-2xl shadow-lg p-8 flex flex-wrap justify-center gap-8">
+            @foreach ($contacts as $contact)
+            <div class="flex items-center gap-4 bg-gray-50 px-5 py-3 rounded-xl shadow-sm hover:shadow-md transition">
+                <x-icon.contact-icon :contact="$contact" />
+                <div>
+                    <p class="font-semibold text-gray-700 text-sm">{{ ucwords($contact->platform) }}</p>
+                    <p class="text-gray-500 text-xs">{{ $contact->contact }}</p>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </section>
+    @endif
+
+    <!-- ===== ACHIEVEMENTS SECTION ===== -->
+    @if (!$achievements->isEmpty())
+    <section>
+        <h2 class="text-3xl font-extrabold text-gray-900 border-l-8 border-primary pl-4 mb-10">
+            Pencapaian & Penghargaan
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            @foreach ($achievements as $achievement)
+            <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all">
+                <div class="flex items-center gap-4 mb-4">
+                    @if ($achievement->image)
+                        <img src="{{ asset("storage/$achievement->image") }}" class="w-14 h-14 rounded-full object-cover shadow-md" />
+                    @else
+                        <div class="w-14 h-14 flex items-center justify-center rounded-full bg-primary text-white shadow-md">
+                            @svg('heroicon-o-trophy', 'w-6 h-6')
+                        </div>
+                    @endif
+                    <div>
+                        <h3 class="font-semibold text-gray-800 text-lg">{{ $achievement->title }}</h3>
+                        <p class="text-gray-600 text-sm">{{ $achievement->organizer }}</p>
+                    </div>
+                </div>
+                <p class="text-gray-700 text-sm leading-relaxed">{{ $achievement->description }}</p>
+            </div>
+            @endforeach
+        </div>
+    </section>
+    @endif
+</main>
+
+<x-footer />
 @endsection
