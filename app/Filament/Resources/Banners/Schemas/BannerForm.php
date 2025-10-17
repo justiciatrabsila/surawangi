@@ -35,7 +35,7 @@ class BannerForm
                         '4:3',
                     ])
                     ->openable()
-                    ->maxSize(5192)
+                    ->maxSize(10240)
                     ->disk('public')
                     ->directory('banner-thumbnail')
                     ->visibility('public')
