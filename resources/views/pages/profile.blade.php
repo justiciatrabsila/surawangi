@@ -15,7 +15,7 @@
     <section class="mb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
             <h2 class="text-3xl lg:text-4xl font-extrabold text-gray-900 mb-6 border-l-8 border-primary pl-4">
-                Visi & Misi Surawangi
+                Visi & Misi BeritaPost
             </h2>
 
             <div class="space-y-6">
@@ -24,8 +24,7 @@
                         @svg('heroicon-o-eye', 'w-6 h-6') <span>Visi</span>
                     </h3>
                     <p class="text-gray-700 leading-relaxed">
-                        Menjadi portal berita online terdepan dan terpercaya di Indonesia yang memberikan informasi
-                        berkualitas, akurat, dan berimbang untuk mencerdaskan bangsa.
+                        Menjadi portal berita digital inovatif dan terpercaya yang menginspirasi generasi muda melalui informasi yang aktual, edukatif, dan berimbang.
                     </p>
                 </div>
 
@@ -41,7 +40,7 @@
         </div>
 
         <div class="space-y-6">
-            <img src="{{ asset('assets/img/berempat.png') }}" alt="Tim Surawangi"
+            <img src="{{ asset('assets/img/berempat.png') }}" alt="Tim BeritaPost"
                 class="w-full h-80 object-cover rounded-2xl shadow-2xl hover:scale-[1.02] transition-transform duration-300">
 
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -65,42 +64,39 @@
         </div>
     </section>
 
-   <!-- ===== TEAM SECTION (Fixed 4 Columns & Square Image) ===== -->
-@if (!$staffs->isEmpty())
-<section class="mb-24">
-    <h2 class="text-3xl font-extrabold text-gray-900 border-l-8 border-primary pl-4 mb-10">
-        Tim Redaksi Surawangi
-    </h2>
+    <!-- ===== TEAM SECTION ===== -->
+    @if (!$staffs->isEmpty())
+    <section class="mb-24">
+        <h2 class="text-3xl font-extrabold text-gray-900 border-l-8 border-primary pl-4 mb-10">
+            Tim Redaksi BeritaPost
+        </h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        @foreach ($staffs as $staff)
-        <div
-            class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group flex flex-col items-center text-center p-5 hover:-translate-y-1.5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            @foreach ($staffs as $staff)
+            <div
+                class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group flex flex-col items-center text-center p-5 hover:-translate-y-1.5">
 
-            <!-- Foto -->
-            <div class="relative w-full h-56 rounded-xl overflow-hidden shadow-md mb-4 group-hover:scale-[1.03] transition-transform duration-300">
-                <img src="{{ asset("storage/$staff->photo") }}" alt="{{ $staff->position }}"
-                    class="w-full h-full object-cover">
-            </div>
-
-            <!-- Info -->
-            <div class="flex-1 flex flex-col justify-between">
-                <div>
-                    <h3 class="text-lg font-bold text-gray-900">{{ $staff->name }}</h3>
-                    <p class="text-primary text-xs font-medium mb-2 uppercase tracking-wide">{{ $staff->position }}</p>
-                    <p class="text-gray-600 text-sm leading-relaxed line-clamp-3">
-                        {{ $staff->bio }}
-                    </p>
+                <div class="relative w-full h-56 rounded-xl overflow-hidden shadow-md mb-4 group-hover:scale-[1.03] transition-transform duration-300">
+                    <img src="{{ asset("storage/$staff->photo") }}" alt="{{ $staff->position }}"
+                        class="w-full h-full object-cover">
                 </div>
-            </div>
 
-            <!-- Accent line -->
-            <div class="mt-4 h-1 w-10 bg-primary rounded-full group-hover:w-16 transition-all duration-300"></div>
+                <div class="flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">{{ $staff->name }}</h3>
+                        <p class="text-primary text-xs font-medium mb-2 uppercase tracking-wide">{{ $staff->position }}</p>
+                        <p class="text-gray-600 text-sm leading-relaxed line-clamp-3">
+                            {{ $staff->bio }}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-4 h-1 w-10 bg-primary rounded-full group-hover:w-16 transition-all duration-300"></div>
+            </div>
+            @endforeach
         </div>
-        @endforeach
-    </div>
-</section>
-@endif
+    </section>
+    @endif
 
     <!-- ===== VALUES SECTION ===== -->
     <section class="mb-20">
@@ -153,35 +149,55 @@
     </section>
     @endif
 
-    <!-- ===== ACHIEVEMENTS SECTION ===== -->
+    <!-- ===== ACHIEVEMENTS SECTION (Modern Card with Wide Image) ===== -->
     @if (!$achievements->isEmpty())
-    <section>
-        <h2 class="text-3xl font-extrabold text-gray-900 border-l-8 border-primary pl-4 mb-10">
-            Pencapaian & Penghargaan
-        </h2>
+    <section class="relative py-20 bg-gradient-to-br from-white via-gray-50 to-gray-100 rounded-3xl shadow-inner overflow-hidden">
+        <div class="absolute inset-0 bg-[url('/assets/img/pattern.svg')] opacity-10"></div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            @foreach ($achievements as $achievement)
-            <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all">
-                <div class="flex items-center gap-4 mb-4">
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <h2 class="text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">
+                    🏆 Pencapaian & Penghargaan
+                </h2>
+                <p class="text-gray-600 text-base max-w-2xl mx-auto">
+                    Beberapa penghargaan dan pencapaian yang telah diraih tim kami dalam perjalanan mengembangkan BeritaPost.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                @foreach ($achievements as $achievement)
+                <div class="group relative bg-white/90 backdrop-blur-sm border border-gray-100 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:bg-white overflow-hidden">
+
+                    <!-- Gambar lebar di atas card -->
                     @if ($achievement->image)
-                        <img src="{{ asset("storage/$achievement->image") }}" class="w-14 h-14 rounded-full object-cover shadow-md" />
+                        <img src="{{ asset("storage/$achievement->image") }}"
+                             alt="{{ $achievement->title }}"
+                             class="w-full h-48 object-cover rounded-t-2xl transition-transform duration-500 group-hover:scale-105">
                     @else
-                        <div class="w-14 h-14 flex items-center justify-center rounded-full bg-primary text-white shadow-md">
-                            @svg('heroicon-o-trophy', 'w-6 h-6')
+                        <div class="w-full h-48 flex items-center justify-center bg-gradient-to-r from-primary to-accent text-white text-3xl font-bold rounded-t-2xl">
+                            <span>{{ Str::substr($achievement->title, 0, 1) }}</span>
                         </div>
                     @endif
-                    <div>
-                        <h3 class="font-semibold text-gray-800 text-lg">{{ $achievement->title }}</h3>
-                        <p class="text-gray-600 text-sm">{{ $achievement->organizer }}</p>
+
+                    <div class="p-6 text-center">
+                        <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-primary transition-colors">
+                            {{ $achievement->title }}
+                        </h3>
+                        <p class="text-sm text-gray-500 font-medium mb-3">
+                            {{ $achievement->organizer }}
+                        </p>
+                        <p class="text-gray-700 text-sm leading-relaxed line-clamp-4">
+                            {{ $achievement->description }}
+                        </p>
+                        <div class="mt-5 w-12 h-1 bg-gradient-to-r from-primary to-accent rounded-full opacity-80 group-hover:w-16 transition-all duration-300 mx-auto"></div>
                     </div>
                 </div>
-                <p class="text-gray-700 text-sm leading-relaxed">{{ $achievement->description }}</p>
+                @endforeach
             </div>
-            @endforeach
         </div>
     </section>
     @endif
+
 </main>
 
 <x-footer />
