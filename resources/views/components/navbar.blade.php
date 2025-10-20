@@ -1,55 +1,61 @@
-<div x-data="{ isOpen: false, searchOpen: false }">
-    <header class="bg-white shadow-lg">
+<div x-data="{ isOpen: false, searchOpen: false }" class="relative">
+    <!-- HEADER -->
+    <header class="bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between py-4">
+            <div class="flex items-center justify-between py-3">
                 <!-- Logo -->
-                <div class="flex-shrink-0">
-                    <a href="{{ route('home') }}">
-                        <img src="{{ asset('assets/img/surawangi.png') }}" alt="SURAWANGI"
-                            class="w-auto h-10 object-contain hover:scale-105 transition-transform duration-300">
-                    </a>
-                </div>
+                <a href="{{ route('home') }}" class="flex items-center space-x-2">
+                    <img src="{{ asset('assets/img/surawangi.png') }}" alt="SURAWANGI"
+                        class="h-10 w-auto object-contain transition-transform duration-300 hover:scale-105">
+                    <span class="font-semibold text-lg text-primary hidden sm:inline">.com</span>
+                </a>
 
                 <!-- Desktop Search -->
-                <form action="{{ route('home') }}" method="GET" class="hidden md:flex flex-1 max-w-md mx-4">
-                    <x-input type="text" name="search" value="{{ request('search') }}"
-                        class="rounded-r-none rounded-l-full flex-1"
-                        placeholder="Cari berita..." />
+                <form action="{{ route('home') }}" method="GET"
+                    class="hidden md:flex items-center bg-gray-100 rounded-full overflow-hidden shadow-inner focus-within:ring-2 focus-within:ring-primary transition-all duration-300 w-full max-w-md mx-4">
+                    <input type="text" name="search" value="{{ request('search') }}"
+                        placeholder="Cari berita..."
+                        class="flex-1 bg-transparent px-4 py-2 text-gray-700 outline-none">
                     <button type="submit"
-                        class="bg-primary text-white px-4 py-3 rounded-r-full hover:bg-red-700 transition-colors">
-                        @svg('bi-search')
+                        class="bg-primary text-white px-4 py-2 hover:bg-red-700 transition-all duration-300">
+                        @svg('bi-search', 'w-5 h-5')
                     </button>
                 </form>
 
-                <!-- Mobile buttons -->
-                <div class="flex items-center space-x-2 md:hidden">
+                <!-- Mobile Buttons -->
+                <div class="flex items-center space-x-3 md:hidden">
                     <button @click="searchOpen = !searchOpen"
-                        class="p-2 rounded-md text-gray-600 hover:text-primary hover:bg-gray-100 transition-colors">
+                        class="p-2 rounded-full bg-gray-100 text-gray-600 hover:text-primary hover:bg-gray-200 transition-all">
                         @svg('bi-search', 'w-5 h-5')
                     </button>
                     <button @click="isOpen = !isOpen"
-                        class="p-2 rounded-md text-gray-600 hover:text-primary hover:bg-gray-100 transition-colors">
-                        <svg class="w-6 h-6" x-show="!isOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                        <svg class="w-6 h-6" x-show="isOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12" />
-                        </svg>
+                        class="p-2 rounded-full bg-gray-100 text-gray-600 hover:text-primary hover:bg-gray-200 transition-all">
+                        <template x-if="!isOpen">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </template>
+                        <template x-if="isOpen">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </template>
                     </button>
                 </div>
             </div>
 
             <!-- Mobile Search -->
-            <div x-show="searchOpen" x-transition class="pb-4 md:hidden">
-                <form action="{{ route('home') }}" method="GET" class="flex">
-                    <x-input type="text" name="search" value="{{ request('search') }}"
-                        class="rounded-r-none rounded-l-full flex-1"
-                        placeholder="Cari berita..." />
+            <div x-show="searchOpen" x-transition
+                class="md:hidden mt-2 border-t border-gray-100 pt-2 pb-4">
+                <form action="{{ route('home') }}" method="GET" class="flex bg-gray-100 rounded-full overflow-hidden shadow-inner">
+                    <input type="text" name="search" value="{{ request('search') }}"
+                        placeholder="Cari berita..."
+                        class="flex-1 bg-transparent px-4 py-2 text-gray-700 outline-none">
                     <button type="submit"
-                        class="bg-primary text-white px-4 py-3 rounded-r-full hover:bg-red-700 transition-colors">
-                        @svg('bi-search')
+                        class="bg-primary text-white px-4 py-2 hover:bg-red-700 transition-all">
+                        @svg('bi-search', 'w-5 h-5')
                     </button>
                 </form>
             </div>
@@ -57,9 +63,9 @@
     </header>
 
     <!-- NAV MENU -->
-    <nav class="bg-white border-t-4 border-primary shadow-sm">
+    <nav class="bg-white border-t-4 border-primary shadow-sm sticky top-[68px] z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <ul class="hidden md:flex flex-row">
+            <ul class="hidden md:flex items-center space-x-1">
                 <li><x-navbar.nav-item title="Beranda" route="home" /></li>
                 <li><x-navbar.nav-item title="Profil" route="profile.index" /></li>
                 <li><x-navbar.nav-item title="Agenda" route="news.index" :params="'agenda'" /></li>
@@ -67,28 +73,24 @@
                 <!-- Dropdown AKD -->
                 <li x-data="{ open: false }" class="relative">
                     <button @click="open = !open"
-                        class="flex items-center gap-1 px-4 py-4 text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors">
+                        class="flex items-center gap-1 px-4 py-4 text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors rounded-md">
                         AKD
-                        <svg class="w-4 h-4 transition-transform" :class="{ 'rotate-180': open }" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 transition-transform duration-200" :class="{ 'rotate-180': open }"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
 
-                    <div x-show="open" x-transition
-                        class="absolute left-0 mt-0 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
+                    <div x-show="open" @click.away="open = false" x-transition
+                        class="absolute left-0 mt-0 w-56 bg-white rounded-lg shadow-lg ring-1 ring-black/5 z-50 overflow-hidden">
                         <div class="py-1">
-                            <a href="{{ route('news.index', 'komisi-1') }}"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary">KOMISI 1</a>
-                            <a href="{{ route('news.index', 'komisi-2') }}"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary">KOMISI 2</a>
-                            <a href="{{ route('news.index', 'komisi-3') }}"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary">KOMISI 3</a>
-                            <a href="{{ route('news.index', 'komisi-4') }}"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary">KOMISI 4</a>
-                            <a href="{{ route('news.index', 'rapat-khusus') }}"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary">RAPAT KHUSUS</a>
+                            @foreach (['komisi-1','komisi-2','komisi-3','komisi-4','rapat-khusus'] as $item)
+                                <a href="{{ route('news.index', $item) }}"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition">
+                                    {{ Str::of($item)->replace('-', ' ')->upper() }}
+                                </a>
+                            @endforeach
                         </div>
                     </div>
                 </li>
@@ -102,36 +104,37 @@
     </nav>
 
     <!-- MOBILE MENU -->
-    <div x-show="isOpen" x-transition class="md:hidden bg-white border-t border-gray-200 shadow-md">
-        <ul class="flex flex-col py-2">
-            <li><a href="{{ route('home') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Beranda</a></li>
-            <li><a href="{{ route('profile.index') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profil</a></li>
-            <li><a href="{{ route('news.index', 'agenda') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Agenda</a></li>
+    <div x-show="isOpen" x-transition class="md:hidden bg-white border-t border-gray-100 shadow-md">
+        <ul class="flex flex-col py-2 space-y-1">
+            <li><a href="{{ route('home') }}" class="block px-4 py-2 hover:bg-gray-100">🏠 Beranda</a></li>
+            <li><a href="{{ route('profile.index') }}" class="block px-4 py-2 hover:bg-gray-100">👤 Profil</a></li>
+            <li><a href="{{ route('news.index', 'agenda') }}" class="block px-4 py-2 hover:bg-gray-100">🗓️ Agenda</a></li>
 
-            <li x-data="{ openAKD: false }">
+            <!-- Mobile Dropdown AKD -->
+            <li x-data="{ openAKD: false }" class="border-t border-gray-100">
                 <button @click="openAKD = !openAKD"
                     class="w-full flex justify-between items-center px-4 py-2 text-gray-700 hover:bg-gray-100">
-                    AKD
-                    <svg class="w-4 h-4 transition-transform" :class="{ 'rotate-180': openAKD }"
-                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    📋 AKD
+                    <svg class="w-4 h-4 transition-transform duration-200"
+                        :class="{ 'rotate-180': openAKD }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
-
-                <div x-show="openAKD" x-transition class="pl-4">
-                    <a href="{{ route('news.index', 'komisi-1') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">KOMISI 1</a>
-                    <a href="{{ route('news.index', 'komisi-2') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">KOMISI 2</a>
-                    <a href="{{ route('news.index', 'komisi-3') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">KOMISI 3</a>
-                    <a href="{{ route('news.index', 'komisi-4') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">KOMISI 4</a>
-                    <a href="{{ route('news.index', 'rapat-khusus') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">RAPAT KHUSUS</a>
+                <div x-show="openAKD" x-transition class="pl-6 border-l border-gray-200">
+                    @foreach (['komisi-1','komisi-2','komisi-3','komisi-4','rapat-khusus'] as $item)
+                        <a href="{{ route('news.index', $item) }}"
+                            class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                            {{ Str::of($item)->replace('-', ' ')->title() }}
+                        </a>
+                    @endforeach
                 </div>
             </li>
 
-            <li><a href="{{ route('news.index', 'kunjungan-tamu') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Kunjungan Tamu</a></li>
-            <li><a href="{{ route('news.index', 'fraksi') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Fraksi</a></li>
-            <li><a href="{{ route('news.index', 'paripurna') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Paripurna</a></li>
-            <li><a href="{{ route('filament.admin.pages.dashboard') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Akun</a></li>
+            <li><a href="{{ route('news.index', 'kunjungan-tamu') }}" class="block px-4 py-2 hover:bg-gray-100">🤝 Kunjungan Tamu</a></li>
+            <li><a href="{{ route('news.index', 'fraksi') }}" class="block px-4 py-2 hover:bg-gray-100">🏛️ Fraksi</a></li>
+            <li><a href="{{ route('news.index', 'paripurna') }}" class="block px-4 py-2 hover:bg-gray-100">📢 Paripurna</a></li>
+            <li><a href="{{ route('filament.admin.pages.dashboard') }}" class="block px-4 py-2 hover:bg-gray-100">⚙️ Akun</a></li>
         </ul>
     </div>
 </div>
