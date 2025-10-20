@@ -6,9 +6,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [NewsController::class, 'index'])->name('home');
 
+// Halaman Profil
 Route::get('/profil', [PageController::class, 'profile'])->name('profile.index');
 
-Route::get('/berita/{category}', [NewsController::class, 'category'])->name('news.index');
+// Daftar berita per kategori (pakai binding slug)
+Route::get('/berita/{category:slug}', [NewsController::class, 'category'])->name('news.index');
 
-Route::get('/berita/{category}/{slug}', [NewsController::class, 'show'])->name('news.show');
- 
+// Detail berita berdasarkan kategori + slug
+Route::get('/berita/{category:slug}/{slug}', [NewsController::class, 'show'])->name('news.show');

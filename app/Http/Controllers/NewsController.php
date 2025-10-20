@@ -13,6 +13,9 @@ class NewsController extends Controller
 {
     public static string $sessionKeyPrefix = 'viewed_post_';
 
+    // =======================
+    //  HALAMAN BERANDA
+    // =======================
     public function index(Request $request)
     {
         $search = $request->input('search');
@@ -23,9 +26,10 @@ class NewsController extends Controller
             ->when($search, function (Builder $builder) use ($search) {
                 $builder->where('title', 'LIKE', "%{$search}%");
             });
-        
-        if (!$search)
+
+        if (!$search) {
             $query->limit(15);
+        }
 
         $posts = $query->paginate(25);
 
@@ -46,14 +50,19 @@ class NewsController extends Controller
         return view('pages.home', compact('carousel', 'posts'));
     }
 
-    public function show(Request $request, Category $category, string $slug)
+    // =======================
+    //  HALAMAN DETAIL BERITA
+    // =======================
+    public function show(Category $category, string $slug)
     {
+        // Ambil berita berdasarkan slug dan kategori
         $news = Post::with(['publisher', 'category'])
             ->news()
             ->where('slug', $slug)
             ->where('category_id', $category->id)
             ->firstOrFail();
 
+        // Berita populer bulan ini
         $popularNews = Post::with('category')
             ->news()
             ->whereMonth('published_at', Carbon::now()->month)
@@ -61,13 +70,15 @@ class NewsController extends Controller
             ->limit(5)
             ->get();
 
+        // Berita terkait kategori yang sama
         $relatedNews = Post::news()
             ->where('category_id', $category->id)
+            ->where('id', '!=', $news->id)
             ->limit(5)
             ->get();
 
+        // Hitung view hanya sekali per session
         $sessionKey = self::$sessionKeyPrefix . $news->id;
-
         if (!session()->has($sessionKey)) {
             $news->increment('views');
             session()->put($sessionKey, true);
@@ -76,6 +87,9 @@ class NewsController extends Controller
         return view('pages.news', compact('news', 'popularNews', 'relatedNews'));
     }
 
+    // =======================
+    //  HALAMAN PER KATEGORI
+    // =======================
     public function category(Category $category)
     {
         $featuredPosts = $category->posts()
@@ -97,7 +111,8 @@ class NewsController extends Controller
         $carousel = Banner::with('category')
             ->where('page_type', 'category')
             ->whereHas('category', function ($query) use ($category) {
-                $query->where('id', $category->id)->where('is_active', true);
+                $query->where('id', $category->id)
+                      ->where('is_active', true);
             })
             ->get()
             ->map(function ($banner) {
