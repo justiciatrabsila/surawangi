@@ -7,9 +7,6 @@ use App\Filament\Widgets\NewsStatOverview;
 use App\Filament\Widgets\TopArticlesTable;
 use App\Filament\Widgets\ViewsChart;
 use Filament\Http\Middleware\Authenticate;
-use Filament\Http\Middleware\AuthenticateSession;
-use Filament\Http\Middleware\DisableBladeIconComponents;
-use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -34,7 +31,9 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->brandName('Surawangi')
             ->brandLogo(asset('assets/img/surawangi.png'))
-            ->brandLogoHeight('2rem')
+            ->favicon(asset('assets/img/logo.png')) // ✅ ganti favicon “B” jadi logo kamu
+            ->brandLogoHeight('2.2rem')
+            ->homeUrl(url('/'))
             ->colors([
                 'primary' => Color::Blue,
             ])
@@ -56,12 +55,9 @@ class AdminPanelProvider extends PanelProvider
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
                 StartSession::class,
-                AuthenticateSession::class,
                 ShareErrorsFromSession::class,
                 VerifyCsrfToken::class,
                 SubstituteBindings::class,
-                DisableBladeIconComponents::class,
-                DispatchServingFilamentEvent::class,
             ])
             ->authMiddleware([
                 Authenticate::class,

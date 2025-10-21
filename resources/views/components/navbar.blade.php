@@ -97,7 +97,32 @@
 
                 <li><x-navbar.nav-item title="Kunjungan Tamu" route="news.index" :params="'kunjungan-tamu'" /></li>
                 <li><x-navbar.nav-item title="Fraksi" route="news.index" :params="'fraksi'" /></li>
-                <li><x-navbar.nav-item title="Paripurna" route="news.index" :params="'paripurna'" /></li>
+
+                <!-- Dropdown Paripurna -->
+                <li x-data="{ openParipurna: false }" class="relative">
+                    <button @click="openParipurna = !openParipurna"
+                        class="flex items-center gap-1 px-4 py-4 text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors rounded-md">
+                        PARIPURNA
+                        <svg class="w-4 h-4 transition-transform duration-200" :class="{ 'rotate-180': openParipurna }"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+
+                    <div x-show="openParipurna" @click.away="openParipurna = false" x-transition
+                        class="absolute left-0 mt-0 w-48 bg-white rounded-lg shadow-lg ring-1 ring-black/5 z-50 overflow-hidden">
+                        <div class="py-1">
+                            @foreach (['paripurna-eksternal','paripurna-internal'] as $item)
+                                <a href="{{ route('news.index', $item) }}"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition">
+                                    {{ Str::of($item)->replace('paripurna-', '')->title() }}
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+                </li>
+
                 <li><x-navbar.nav-item title="Akun" route="filament.admin.pages.dashboard" /></li>
             </ul>
         </div>
@@ -133,7 +158,28 @@
 
             <li><a href="{{ route('news.index', 'kunjungan-tamu') }}" class="block px-4 py-2 hover:bg-gray-100">🤝 Kunjungan Tamu</a></li>
             <li><a href="{{ route('news.index', 'fraksi') }}" class="block px-4 py-2 hover:bg-gray-100">🏛️ Fraksi</a></li>
-            <li><a href="{{ route('news.index', 'paripurna') }}" class="block px-4 py-2 hover:bg-gray-100">📢 Paripurna</a></li>
+
+            <!-- Mobile Dropdown Paripurna -->
+            <li x-data="{ openParipurna: false }" class="border-t border-gray-100">
+                <button @click="openParipurna = !openParipurna"
+                    class="w-full flex justify-between items-center px-4 py-2 text-gray-700 hover:bg-gray-100">
+                    📢 Paripurna
+                    <svg class="w-4 h-4 transition-transform duration-200"
+                        :class="{ 'rotate-180': openParipurna }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div x-show="openParipurna" x-transition class="pl-6 border-l border-gray-200">
+                    @foreach (['paripurna-eksternal','paripurna-internal'] as $item)
+                        <a href="{{ route('news.index', $item) }}"
+                            class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                            {{ Str::of($item)->replace('paripurna-', '')->title() }}
+                        </a>
+                    @endforeach
+                </div>
+            </li>
+
             <li><a href="{{ route('filament.admin.pages.dashboard') }}" class="block px-4 py-2 hover:bg-gray-100">⚙️ Akun</a></li>
         </ul>
     </div>

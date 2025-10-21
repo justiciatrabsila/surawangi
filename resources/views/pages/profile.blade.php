@@ -15,7 +15,7 @@
     <section class="mb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
             <h2 class="text-3xl lg:text-4xl font-extrabold text-gray-900 mb-6 border-l-8 border-primary pl-4">
-                Visi & Misi BeritaPost
+                Visi & Misi SURAWANGI
             </h2>
 
             <div class="space-y-6">
@@ -40,7 +40,7 @@
         </div>
 
         <div class="space-y-6">
-            <img src="{{ asset('assets/img/berempat.png') }}" alt="Tim BeritaPost"
+            <img src="{{ asset('assets/img/berempat.png') }}" alt="Tim SURAWANGI"
                 class="w-full h-80 object-cover rounded-2xl shadow-2xl hover:scale-[1.02] transition-transform duration-300">
 
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -68,7 +68,7 @@
     @if (!$staffs->isEmpty())
     <section class="mb-24">
         <h2 class="text-3xl font-extrabold text-gray-900 border-l-8 border-primary pl-4 mb-10">
-            Tim Redaksi BeritaPost
+            Tim Redaksi SURAWANGI
         </h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -160,7 +160,7 @@
                     🏆 Pencapaian & Penghargaan
                 </h2>
                 <p class="text-gray-600 text-base max-w-2xl mx-auto">
-                    Beberapa penghargaan dan pencapaian yang telah diraih tim kami dalam perjalanan mengembangkan BeritaPost.
+                    Beberapa penghargaan dan pencapaian yang telah diraih tim kami dalam perjalanan mengembangkan SURAWANGI.
                 </p>
             </div>
 
