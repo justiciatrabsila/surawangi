@@ -12,9 +12,9 @@
     @endif
 
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/logo.png') }}">
-<link rel="apple-touch-icon" href="{{ asset('assets/img/logo.png') }}">
-<link rel="icon" type="image/png" href="{{ asset('assets/img/logo.png') }}" sizes="16x16">
-<link rel="icon" type="image/png" href="{{ asset('assets/img/logo.png') }}" sizes="32x32">
+    <link rel="apple-touch-icon" href="{{ asset('assets/img/logo.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/logo.png') }}" sizes="16x16">
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/logo.png') }}" sizes="32x32">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 
@@ -38,16 +38,13 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.14.9/cdn.min.js"
         integrity="sha512-KSdieUYxSxr/laB3Bh5TP8GAng49b2qRfdcnFvh8OuPpPgksA189OQ9v1A3gIz5P9s3A4aXMe5uiHLMfla60Uw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
-    <script defer>
-        const notyf = new Notyf({
-            duration: 2000,
-            position: {
-                x: 'right',
-                y: 'top',
-            }
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            console.log('✅ Alpine berhasil jalan!');
         });
     </script>
+
     @stack('scripts')
 </body>
 
