@@ -17,7 +17,7 @@
                         placeholder="Cari berita atau informasi..."
                         class="flex-1 bg-transparent px-5 py-2.5 text-gray-700 text-sm outline-none placeholder:text-gray-400">
                     <button type="submit"
-                        class="bg-blue-600 text-white px-5 py-2.5 hover:bg-blue-700 transition-all duration-300 font-medium">
+                        class="bg-gradient-to-r from-blue-400 to-sky-400 text-white px-5 py-2.5 hover:from-blue-500 hover:to-sky-500 transition-all duration-300 font-medium shadow-sm">
                         @svg('bi-search', 'w-4 h-4')
                     </button>
                 </form>
@@ -54,7 +54,7 @@
                         placeholder="Cari berita..."
                         class="flex-1 bg-transparent px-4 py-2 text-gray-700 outline-none">
                     <button type="submit"
-                        class="bg-primary text-white px-4 py-2 hover:bg-red-700 transition-all">
+                        class="bg-gradient-to-r from-blue-400 to-sky-400 text-white px-4 py-2 hover:from-blue-500 hover:to-sky-500 transition-all shadow-sm">
                         @svg('bi-search', 'w-5 h-5')
                     </button>
                 </form>
@@ -62,52 +62,52 @@
         </div>
     </header>
 
-    <!-- NAV MENU - ELEGANT MODERN DESIGN -->
-    <nav class="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 sticky top-[76px] z-40 shadow-lg backdrop-blur-sm">
+    <!-- NAV MENU - ELEGANT LIGHT BLUE WITH TRANSPARENCY -->
+    <nav class="bg-gradient-to-r from-blue-400/90 via-sky-400/90 to-cyan-400/90 backdrop-blur-md sticky top-[76px] z-40 shadow-lg border-b border-white/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ul class="hidden md:flex items-center justify-center space-x-1">
                 <!-- Beranda -->
                 <li>
                     <a href="{{ route('home') }}"
-                        class="relative group flex items-center px-6 py-4 text-sm font-semibold text-white/90 hover:text-white transition-all duration-300">
-                        <span class="relative z-10">Beranda</span>
-                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-lg transition-all duration-300"></span>
-                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300"></span>
+                        class="relative group flex items-center px-6 py-4 text-sm font-semibold text-white hover:text-white transition-all duration-300">
+                        <span class="relative z-10 drop-shadow-sm">Beranda</span>
+                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/20 rounded-lg transition-all duration-300"></span>
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300 shadow-lg"></span>
                     </a>
                 </li>
 
                 <!-- Profil -->
                 <li>
                     <a href="{{ route('profile.index') }}"
-                        class="relative group flex items-center px-6 py-4 text-sm font-semibold text-white/90 hover:text-white transition-all duration-300">
-                        <span class="relative z-10">Profil</span>
-                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-lg transition-all duration-300"></span>
-                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300"></span>
+                        class="relative group flex items-center px-6 py-4 text-sm font-semibold text-white hover:text-white transition-all duration-300">
+                        <span class="relative z-10 drop-shadow-sm">Profil</span>
+                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/20 rounded-lg transition-all duration-300"></span>
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300 shadow-lg"></span>
                     </a>
                 </li>
 
                 <!-- Agenda -->
                 <li>
                     <a href="{{ route('news.index', 'agenda') }}"
-                        class="relative group flex items-center px-6 py-4 text-sm font-semibold text-white/90 hover:text-white transition-all duration-300">
-                        <span class="relative z-10">Agenda</span>
-                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-lg transition-all duration-300"></span>
-                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300"></span>
+                        class="relative group flex items-center px-6 py-4 text-sm font-semibold text-white hover:text-white transition-all duration-300">
+                        <span class="relative z-10 drop-shadow-sm">Agenda</span>
+                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/20 rounded-lg transition-all duration-300"></span>
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300 shadow-lg"></span>
                     </a>
                 </li>
 
                 <!-- Dropdown AKD -->
                 <li x-data="{ open: false }" class="relative">
                     <button @click="open = !open"
-                        class="relative group flex items-center gap-1.5 px-6 py-4 text-sm font-semibold text-white/90 hover:text-white transition-all duration-300">
-                        <span class="relative z-10">AKD</span>
-                        <svg class="w-4 h-4 transition-transform duration-300 relative z-10" :class="{ 'rotate-180': open }"
+                        class="relative group flex items-center gap-1.5 px-6 py-4 text-sm font-semibold text-white hover:text-white transition-all duration-300">
+                        <span class="relative z-10 drop-shadow-sm">AKD</span>
+                        <svg class="w-4 h-4 transition-transform duration-300 relative z-10 drop-shadow-sm" :class="{ 'rotate-180': open }"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M19 9l-7 7-7-7" />
                         </svg>
-                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-lg transition-all duration-300"></span>
-                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300"></span>
+                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/20 rounded-lg transition-all duration-300"></span>
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300 shadow-lg"></span>
                     </button>
 
                     <div x-show="open" @click.away="open = false"
@@ -132,35 +132,35 @@
                 <!-- Kunjungan Tamu -->
                 <li>
                     <a href="{{ route('news.index', 'kunjungan-tamu') }}"
-                        class="relative group flex items-center px-6 py-4 text-sm font-semibold text-white/90 hover:text-white transition-all duration-300">
-                        <span class="relative z-10">Kunjungan Tamu</span>
-                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-lg transition-all duration-300"></span>
-                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300"></span>
+                        class="relative group flex items-center px-6 py-4 text-sm font-semibold text-white hover:text-white transition-all duration-300">
+                        <span class="relative z-10 drop-shadow-sm">Kunjungan Tamu</span>
+                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/20 rounded-lg transition-all duration-300"></span>
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300 shadow-lg"></span>
                     </a>
                 </li>
 
                 <!-- Fraksi -->
                 <li>
                     <a href="{{ route('news.index', 'fraksi') }}"
-                        class="relative group flex items-center px-6 py-4 text-sm font-semibold text-white/90 hover:text-white transition-all duration-300">
-                        <span class="relative z-10">Fraksi</span>
-                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-lg transition-all duration-300"></span>
-                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300"></span>
+                        class="relative group flex items-center px-6 py-4 text-sm font-semibold text-white hover:text-white transition-all duration-300">
+                        <span class="relative z-10 drop-shadow-sm">Fraksi</span>
+                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/20 rounded-lg transition-all duration-300"></span>
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300 shadow-lg"></span>
                     </a>
                 </li>
 
                 <!-- Dropdown Paripurna -->
                 <li x-data="{ openParipurna: false }" class="relative">
                     <button @click="openParipurna = !openParipurna"
-                        class="relative group flex items-center gap-1.5 px-6 py-4 text-sm font-semibold text-white/90 hover:text-white transition-all duration-300">
-                        <span class="relative z-10">Paripurna</span>
-                        <svg class="w-4 h-4 transition-transform duration-300 relative z-10" :class="{ 'rotate-180': openParipurna }"
+                        class="relative group flex items-center gap-1.5 px-6 py-4 text-sm font-semibold text-white hover:text-white transition-all duration-300">
+                        <span class="relative z-10 drop-shadow-sm">Paripurna</span>
+                        <svg class="w-4 h-4 transition-transform duration-300 relative z-10 drop-shadow-sm" :class="{ 'rotate-180': openParipurna }"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M19 9l-7 7-7-7" />
                         </svg>
-                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-lg transition-all duration-300"></span>
-                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300"></span>
+                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/20 rounded-lg transition-all duration-300"></span>
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300 shadow-lg"></span>
                     </button>
 
                     <div x-show="openParipurna" @click.away="openParipurna = false"
@@ -185,17 +185,17 @@
                 <!-- Akun -->
                 <li>
                     <a href="{{ route('filament.admin.pages.dashboard') }}"
-                        class="relative group flex items-center px-6 py-4 text-sm font-semibold text-white/90 hover:text-white transition-all duration-300">
-                        <span class="relative z-10">Akun</span>
-                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-lg transition-all duration-300"></span>
-                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300"></span>
+                        class="relative group flex items-center px-6 py-4 text-sm font-semibold text-white hover:text-white transition-all duration-300">
+                        <span class="relative z-10 drop-shadow-sm">Akun</span>
+                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/20 rounded-lg transition-all duration-300"></span>
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300 shadow-lg"></span>
                     </a>
                 </li>
             </ul>
         </div>
 
         <!-- Decorative gradient line at bottom -->
-        <div class="h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50"></div>
+        <div class="h-1 bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
     </nav>
 
     <!-- MOBILE MENU - ELEGANT & MINIMAL -->
@@ -341,7 +341,7 @@
                 <!-- Akun -->
                 <li>
                     <a href="{{ route('filament.admin.pages.dashboard') }}"
-                        class="flex items-center px-4 py-3 text-blue-600 bg-blue-50 rounded-lg transition-all duration-200 font-semibold">
+                        class="flex items-center px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium">
                         Akun
                     </a>
                 </li>
