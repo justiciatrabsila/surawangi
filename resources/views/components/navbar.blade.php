@@ -62,61 +62,67 @@
         </div>
     </header>
 
-    <!-- NAV MENU - ELEGANT DESKTOP VERSION -->
-    <nav class="bg-white border-b border-gray-200 sticky top-[76px] z-40 shadow-sm">
+    <!-- NAV MENU - ELEGANT MODERN DESIGN -->
+    <nav class="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 sticky top-[76px] z-40 shadow-lg backdrop-blur-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ul class="hidden md:flex items-center justify-center space-x-1">
                 <!-- Beranda -->
                 <li>
                     <a href="{{ route('home') }}"
-                        class="relative group flex items-center px-5 py-4 text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors duration-300">
-                        <span>Beranda</span>
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                        class="relative group flex items-center px-6 py-4 text-sm font-semibold text-white/90 hover:text-white transition-all duration-300">
+                        <span class="relative z-10">Beranda</span>
+                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-lg transition-all duration-300"></span>
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300"></span>
                     </a>
                 </li>
 
                 <!-- Profil -->
                 <li>
                     <a href="{{ route('profile.index') }}"
-                        class="relative group flex items-center px-5 py-4 text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors duration-300">
-                        <span>Profil</span>
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                        class="relative group flex items-center px-6 py-4 text-sm font-semibold text-white/90 hover:text-white transition-all duration-300">
+                        <span class="relative z-10">Profil</span>
+                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-lg transition-all duration-300"></span>
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300"></span>
                     </a>
                 </li>
 
                 <!-- Agenda -->
                 <li>
                     <a href="{{ route('news.index', 'agenda') }}"
-                        class="relative group flex items-center px-5 py-4 text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors duration-300">
-                        <span>Agenda</span>
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                        class="relative group flex items-center px-6 py-4 text-sm font-semibold text-white/90 hover:text-white transition-all duration-300">
+                        <span class="relative z-10">Agenda</span>
+                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-lg transition-all duration-300"></span>
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300"></span>
                     </a>
                 </li>
 
                 <!-- Dropdown AKD -->
                 <li x-data="{ open: false }" class="relative">
                     <button @click="open = !open"
-                        class="relative group flex items-center gap-1.5 px-5 py-4 text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors duration-300">
-                        <span>AKD</span>
-                        <svg class="w-4 h-4 transition-transform duration-300" :class="{ 'rotate-180': open }"
+                        class="relative group flex items-center gap-1.5 px-6 py-4 text-sm font-semibold text-white/90 hover:text-white transition-all duration-300">
+                        <span class="relative z-10">AKD</span>
+                        <svg class="w-4 h-4 transition-transform duration-300 relative z-10" :class="{ 'rotate-180': open }"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M19 9l-7 7-7-7" />
                         </svg>
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-lg transition-all duration-300"></span>
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300"></span>
                     </button>
 
                     <div x-show="open" @click.away="open = false"
                         x-transition:enter="transition ease-out duration-200"
-                        x-transition:enter-start="opacity-0 -translate-y-2"
-                        x-transition:enter-end="opacity-100 translate-y-0"
-                        class="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
-                        <div class="py-2">
+                        x-transition:enter-start="opacity-0 scale-95 -translate-y-2"
+                        x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+                        class="absolute left-0 mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-blue-100 overflow-hidden z-50">
+                        <div class="py-3 px-2">
                             @foreach (['komisi-1','komisi-2','komisi-3','komisi-4','rapat-khusus'] as $item)
                                 <a href="{{ route('news.index', $item) }}"
-                                    class="group flex items-center px-4 py-2.5 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200">
-                                    <span class="w-1 h-1 rounded-full bg-gray-300 group-hover:bg-blue-600 mr-3 transition-colors duration-200"></span>
-                                    {{ Str::of($item)->replace('-', ' ')->upper() }}
+                                    class="group flex items-center px-4 py-3 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-200 mb-1 last:mb-0">
+                                    <span class="flex items-center justify-center w-6 h-6 rounded-lg bg-blue-50 group-hover:bg-blue-600 mr-3 transition-all duration-200">
+                                        <span class="w-2 h-2 rounded-full bg-blue-600 group-hover:bg-white transition-all duration-200"></span>
+                                    </span>
+                                    <span class="font-medium">{{ Str::of($item)->replace('-', ' ')->upper() }}</span>
                                 </a>
                             @endforeach
                         </div>
@@ -126,45 +132,50 @@
                 <!-- Kunjungan Tamu -->
                 <li>
                     <a href="{{ route('news.index', 'kunjungan-tamu') }}"
-                        class="relative group flex items-center px-5 py-4 text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors duration-300">
-                        <span>Kunjungan Tamu</span>
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                        class="relative group flex items-center px-6 py-4 text-sm font-semibold text-white/90 hover:text-white transition-all duration-300">
+                        <span class="relative z-10">Kunjungan Tamu</span>
+                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-lg transition-all duration-300"></span>
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300"></span>
                     </a>
                 </li>
 
                 <!-- Fraksi -->
                 <li>
                     <a href="{{ route('news.index', 'fraksi') }}"
-                        class="relative group flex items-center px-5 py-4 text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors duration-300">
-                        <span>Fraksi</span>
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                        class="relative group flex items-center px-6 py-4 text-sm font-semibold text-white/90 hover:text-white transition-all duration-300">
+                        <span class="relative z-10">Fraksi</span>
+                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-lg transition-all duration-300"></span>
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300"></span>
                     </a>
                 </li>
 
                 <!-- Dropdown Paripurna -->
                 <li x-data="{ openParipurna: false }" class="relative">
                     <button @click="openParipurna = !openParipurna"
-                        class="relative group flex items-center gap-1.5 px-5 py-4 text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors duration-300">
-                        <span>Paripurna</span>
-                        <svg class="w-4 h-4 transition-transform duration-300" :class="{ 'rotate-180': openParipurna }"
+                        class="relative group flex items-center gap-1.5 px-6 py-4 text-sm font-semibold text-white/90 hover:text-white transition-all duration-300">
+                        <span class="relative z-10">Paripurna</span>
+                        <svg class="w-4 h-4 transition-transform duration-300 relative z-10" :class="{ 'rotate-180': openParipurna }"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M19 9l-7 7-7-7" />
                         </svg>
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-lg transition-all duration-300"></span>
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300"></span>
                     </button>
 
                     <div x-show="openParipurna" @click.away="openParipurna = false"
                         x-transition:enter="transition ease-out duration-200"
-                        x-transition:enter-start="opacity-0 -translate-y-2"
-                        x-transition:enter-end="opacity-100 translate-y-0"
-                        class="absolute left-0 mt-2 w-52 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
-                        <div class="py-2">
+                        x-transition:enter-start="opacity-0 scale-95 -translate-y-2"
+                        x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+                        class="absolute left-0 mt-2 w-60 bg-white rounded-2xl shadow-2xl border border-blue-100 overflow-hidden z-50">
+                        <div class="py-3 px-2">
                             @foreach (['paripurna-eksternal','paripurna-internal'] as $item)
                                 <a href="{{ route('news.index', $item) }}"
-                                    class="group flex items-center px-4 py-2.5 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200">
-                                    <span class="w-1 h-1 rounded-full bg-gray-300 group-hover:bg-blue-600 mr-3 transition-colors duration-200"></span>
-                                    {{ Str::of($item)->replace('paripurna-', '')->title() }}
+                                    class="group flex items-center px-4 py-3 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-200 mb-1 last:mb-0">
+                                    <span class="flex items-center justify-center w-6 h-6 rounded-lg bg-blue-50 group-hover:bg-blue-600 mr-3 transition-all duration-200">
+                                        <span class="w-2 h-2 rounded-full bg-blue-600 group-hover:bg-white transition-all duration-200"></span>
+                                    </span>
+                                    <span class="font-medium">{{ Str::of($item)->replace('paripurna-', '')->title() }}</span>
                                 </a>
                             @endforeach
                         </div>
@@ -174,155 +185,167 @@
                 <!-- Akun -->
                 <li>
                     <a href="{{ route('filament.admin.pages.dashboard') }}"
-                        class="relative group flex items-center px-5 py-4 text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors duration-300">
-                        <span>Akun</span>
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                        class="relative group flex items-center px-6 py-4 text-sm font-semibold text-white/90 hover:text-white transition-all duration-300">
+                        <span class="relative z-10">Akun</span>
+                        <span class="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-lg transition-all duration-300"></span>
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-white rounded-full group-hover:w-3/4 transition-all duration-300"></span>
                     </a>
                 </li>
             </ul>
         </div>
+
+        <!-- Decorative gradient line at bottom -->
+        <div class="h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50"></div>
     </nav>
 
-    <!-- MOBILE MENU SLIDE-IN DARI KANAN (tidak diubah) -->
+    <!-- MOBILE MENU - ELEGANT & MINIMAL -->
     <!-- Overlay -->
     <div
         x-show="isOpen"
-        x-transition.opacity
-        class="fixed inset-0 bg-black/40 z-40 md:hidden"
+        x-transition.opacity.duration.300ms
+        class="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 md:hidden"
         @click="isOpen = false">
     </div>
 
     <!-- Sidebar Menu -->
     <div
         x-show="isOpen"
-        x-transition:enter="transition transform duration-400 ease-out"
-        x-transition:enter-start="translate-x-full opacity-0"
-        x-transition:enter-end="translate-x-0 opacity-100"
-        x-transition:leave="transition transform duration-300 ease-in"
-        x-transition:leave-start="translate-x-0 opacity-100"
-        x-transition:leave-end="translate-x-full opacity-0"
-        class="fixed right-0 top-0 h-full w-72 bg-white shadow-2xl z-50 overflow-y-auto md:hidden border-l-2 border-primary"
+        x-transition:enter="transition transform duration-300 ease-out"
+        x-transition:enter-start="translate-x-full"
+        x-transition:enter-end="translate-x-0"
+        x-transition:leave="transition transform duration-250 ease-in"
+        x-transition:leave-start="translate-x-0"
+        x-transition:leave-end="translate-x-full"
+        class="fixed right-0 top-0 h-full w-80 bg-white shadow-2xl z-50 overflow-y-auto md:hidden"
     >
-        <!-- Header Sidebar -->
-        <div class="sticky top-0 bg-gradient-to-br from-primary via-blue-600 to-blue-700 p-5 shadow-xl z-10">
+        <!-- Header Sidebar - Simple & Clean -->
+        <div class="sticky top-0 bg-white border-b border-gray-100 px-6 py-5 z-10">
             <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <img src="{{ asset('assets/img/surawangi.png') }}" alt="SURAWANGI" class="h-8 w-auto object-contain">
-                    <div>
-                        <p class="text-xs text-blue-100 mt-1"></p>
-                    </div>
+                <div class="flex items-center gap-3">
+                    <img src="{{ asset('assets/img/surawangi.png') }}" alt="SURAWANGI" class="h-9 w-auto object-contain">
+                    <span class="text-lg font-bold text-blue-600">.com</span>
                 </div>
-                <button @click="isOpen = false" class="text-white hover:bg-white/20 p-2 rounded-xl transition-all duration-200 hover:rotate-90">
+                <button @click="isOpen = false" class="text-gray-400 hover:text-gray-600 p-2 hover:bg-gray-100 rounded-lg transition-all duration-200">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
         </div>
 
-        <ul class="flex flex-col py-4 px-4 space-y-1">
-            <li>
-                <a href="{{ route('home') }}"
-                    class="group relative flex items-center px-5 py-3.5 rounded-xl hover:bg-gray-50 transition-all duration-300 overflow-hidden shadow-sm hover:shadow-md">
-                    <span class="absolute left-0 w-1 h-0 bg-primary group-hover:h-full transition-all duration-300 rounded-r"></span>
-                    <span class="relative z-10 text-sm font-semibold text-gray-700 group-hover:text-primary group-hover:translate-x-2 transition-all duration-300">Beranda</span>
-                </a>
-            </li>
+        <!-- Menu Items -->
+        <nav class="px-4 py-6">
+            <ul class="space-y-1">
+                <!-- Beranda -->
+                <li>
+                    <a href="{{ route('home') }}"
+                        class="flex items-center px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium">
+                        Beranda
+                    </a>
+                </li>
 
-            <li>
-                <a href="{{ route('profile.index') }}"
-                    class="group relative flex items-center px-5 py-3.5 rounded-xl hover:bg-gray-50 transition-all duration-300 overflow-hidden shadow-sm hover:shadow-md">
-                    <span class="absolute left-0 w-1 h-0 bg-primary group-hover:h-full transition-all duration-300 rounded-r"></span>
-                    <span class="relative z-10 text-sm font-semibold text-gray-700 group-hover:text-primary group-hover:translate-x-2 transition-all duration-300">Profil</span>
-                </a>
-            </li>
+                <!-- Profil -->
+                <li>
+                    <a href="{{ route('profile.index') }}"
+                        class="flex items-center px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium">
+                        Profil
+                    </a>
+                </li>
 
-            <li>
-                <a href="{{ route('news.index', 'agenda') }}"
-                    class="group relative flex items-center px-5 py-3.5 rounded-xl hover:bg-gray-50 transition-all duration-300 overflow-hidden shadow-sm hover:shadow-md">
-                    <span class="absolute left-0 w-1 h-0 bg-primary group-hover:h-full transition-all duration-300 rounded-r"></span>
-                    <span class="relative z-10 text-sm font-semibold text-gray-700 group-hover:text-primary group-hover:translate-x-2 transition-all duration-300">Agenda</span>
-                </a>
-            </li>
+                <!-- Agenda -->
+                <li>
+                    <a href="{{ route('news.index', 'agenda') }}"
+                        class="flex items-center px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium">
+                        Agenda
+                    </a>
+                </li>
 
-            <!-- Mobile Dropdown AKD -->
-            <li x-data="{ openAKD: false }" class="border-t border-gray-200 pt-3 mt-3">
-                <button @click="openAKD = !openAKD"
-                    class="w-full group relative flex justify-between items-center px-5 py-3.5 rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-sm hover:shadow-md">
-                    <span class="text-sm font-semibold text-gray-700 group-hover:text-primary transition-colors duration-300">AKD</span>
-                    <svg class="w-5 h-5 text-gray-400 transition-all duration-300 group-hover:text-primary"
-                        :class="{ 'rotate-180 text-primary': openAKD }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                            d="M19 9l-7 7-7-7" />
-                    </svg>
-                </button>
-                <div x-show="openAKD"
-                    x-transition:enter="transition ease-out duration-300"
-                    x-transition:enter-start="opacity-0 -translate-y-2"
-                    x-transition:enter-end="opacity-100 translate-y-0"
-                    class="mt-2 space-y-1 pl-3">
-                    @foreach (['komisi-1','komisi-2','komisi-3','komisi-4','rapat-khusus'] as $item)
-                        <a href="{{ route('news.index', $item) }}"
-                            class="group flex items-center px-4 py-2.5 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-all duration-200 hover:translate-x-1 hover:shadow-sm">
-                            <span class="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-primary mr-3 transition-all duration-200"></span>
-                            {{ Str::of($item)->replace('-', ' ')->title() }}
-                        </a>
-                    @endforeach
-                </div>
-            </li>
+                <!-- Divider -->
+                <li class="py-2">
+                    <div class="border-t border-gray-100"></div>
+                </li>
 
-            <li>
-                <a href="{{ route('news.index', 'kunjungan-tamu') }}"
-                    class="group relative flex items-center px-5 py-3.5 rounded-xl hover:bg-gray-50 transition-all duration-300 overflow-hidden shadow-sm hover:shadow-md">
-                    <span class="absolute left-0 w-1 h-0 bg-primary group-hover:h-full transition-all duration-300 rounded-r"></span>
-                    <span class="relative z-10 text-sm font-semibold text-gray-700 group-hover:text-primary group-hover:translate-x-2 transition-all duration-300">Kunjungan Tamu</span>
-                </a>
-            </li>
+                <!-- AKD Dropdown -->
+                <li x-data="{ openAKD: false }">
+                    <button @click="openAKD = !openAKD"
+                        class="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium">
+                        <span>AKD</span>
+                        <svg class="w-4 h-4 transition-transform duration-200"
+                            :class="{ 'rotate-180': openAKD }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div x-show="openAKD"
+                        x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 -translate-y-1"
+                        x-transition:enter-end="opacity-100 translate-y-0"
+                        class="mt-1 ml-4 space-y-1">
+                        @foreach (['komisi-1','komisi-2','komisi-3','komisi-4','rapat-khusus'] as $item)
+                            <a href="{{ route('news.index', $item) }}"
+                                class="flex items-center px-4 py-2.5 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
+                                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 mr-3"></span>
+                                {{ Str::of($item)->replace('-', ' ')->title() }}
+                            </a>
+                        @endforeach
+                    </div>
+                </li>
 
-            <li>
-                <a href="{{ route('news.index', 'fraksi') }}"
-                    class="group relative flex items-center px-5 py-3.5 rounded-xl hover:bg-gray-50 transition-all duration-300 overflow-hidden shadow-sm hover:shadow-md">
-                    <span class="absolute left-0 w-1 h-0 bg-primary group-hover:h-full transition-all duration-300 rounded-r"></span>
-                    <span class="relative z-10 text-sm font-semibold text-gray-700 group-hover:text-primary group-hover:translate-x-2 transition-all duration-300">Fraksi</span>
-                </a>
-            </li>
+                <!-- Kunjungan Tamu -->
+                <li>
+                    <a href="{{ route('news.index', 'kunjungan-tamu') }}"
+                        class="flex items-center px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium">
+                        Kunjungan Tamu
+                    </a>
+                </li>
 
-            <!-- Mobile Dropdown Paripurna -->
-            <li x-data="{ openParipurna: false }" class="border-t border-gray-200 pt-3 mt-3">
-                <button @click="openParipurna = !openParipurna"
-                    class="w-full group relative flex justify-between items-center px-5 py-3.5 rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-sm hover:shadow-md">
-                    <span class="text-sm font-semibold text-gray-700 group-hover:text-primary transition-colors duration-300">Paripurna</span>
-                    <svg class="w-5 h-5 text-gray-400 transition-all duration-300 group-hover:text-primary"
-                        :class="{ 'rotate-180 text-primary': openParipurna }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                            d="M19 9l-7 7-7-7" />
-                    </svg>
-                </button>
-                <div x-show="openParipurna"
-                    x-transition:enter="transition ease-out duration-300"
-                    x-transition:enter-start="opacity-0 -translate-y-2"
-                    x-transition:enter-end="opacity-100 translate-y-0"
-                    class="mt-2 space-y-1 pl-3">
-                    @foreach (['paripurna-eksternal','paripurna-internal'] as $item)
-                        <a href="{{ route('news.index', $item) }}"
-                            class="group flex items-center px-4 py-2.5 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-all duration-200 hover:translate-x-1 hover:shadow-sm">
-                            <span class="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-primary mr-3 transition-all duration-200"></span>
-                            {{ Str::of($item)->replace('paripurna-', '')->title() }}
-                        </a>
-                    @endforeach
-                </div>
-            </li>
+                <!-- Fraksi -->
+                <li>
+                    <a href="{{ route('news.index', 'fraksi') }}"
+                        class="flex items-center px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium">
+                        Fraksi
+                    </a>
+                </li>
 
-            <li class="border-t border-gray-200 pt-3 mt-3">
-                <a href="{{ route('filament.admin.pages.dashboard') }}"
-                    class="group relative flex items-center px-5 py-3.5 rounded-xl hover:bg-white transition-all duration-300 overflow-hidden shadow-sm hover:shadow-md">
-                    <span class="absolute left-0 w-1 h-0 bg-primary group-hover:h-full transition-all duration-300 rounded-r"></span>
-                    <span class="relative z-10 text-sm font-semibold text-gray-700 group-hover:text-primary group-hover:translate-x-2 transition-all duration-300">Akun</span>
-                </a>
-            </li>
-        </ul>
+                <!-- Paripurna Dropdown -->
+                <li x-data="{ openParipurna: false }">
+                    <button @click="openParipurna = !openParipurna"
+                        class="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium">
+                        <span>Paripurna</span>
+                        <svg class="w-4 h-4 transition-transform duration-200"
+                            :class="{ 'rotate-180': openParipurna }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div x-show="openParipurna"
+                        x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 -translate-y-1"
+                        x-transition:enter-end="opacity-100 translate-y-0"
+                        class="mt-1 ml-4 space-y-1">
+                        @foreach (['paripurna-eksternal','paripurna-internal'] as $item)
+                            <a href="{{ route('news.index', $item) }}"
+                                class="flex items-center px-4 py-2.5 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
+                                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 mr-3"></span>
+                                {{ Str::of($item)->replace('paripurna-', '')->title() }}
+                            </a>
+                        @endforeach
+                    </div>
+                </li>
 
-        <!-- Decorative Bottom Wave -->
-        <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none"></div>
+                <!-- Divider -->
+                <li class="py-2">
+                    <div class="border-t border-gray-100"></div>
+                </li>
+
+                <!-- Akun -->
+                <li>
+                    <a href="{{ route('filament.admin.pages.dashboard') }}"
+                        class="flex items-center px-4 py-3 text-blue-600 bg-blue-50 rounded-lg transition-all duration-200 font-semibold">
+                        Akun
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </div>
