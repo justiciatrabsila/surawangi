@@ -1,23 +1,26 @@
 <div x-data="{ isOpen: false, searchOpen: false }" class="relative">
     <!-- HEADER -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
+    <header class="bg-gradient-to-br from-slate-50 via-blue-50/30 to-sky-50/40 shadow-md sticky top-0 z-50 border-b border-blue-100/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between py-4">
                 <!-- Logo -->
                 <a href="{{ route('home') }}" class="flex items-center space-x-3 group">
                     <img src="{{ asset('assets/img/surawangi.png') }}" alt="SURAWANGI"
-                        class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
-                    <span class="font-bold text-xl text-blue-600 hidden sm:inline">.com</span>
+                        class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md">
+                    <img src="{{ asset('assets/img/smea.png') }}" alt="SMEA"
+                        class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md">
+                    <img src="{{ asset('assets/img/sekre.png') }}" alt="SEKRE"
+                        class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md">
                 </a>
 
                 <!-- Desktop Search -->
                 <form action="{{ route('home') }}" method="GET"
-                    class="hidden md:flex items-center bg-gray-50 rounded-full overflow-hidden border border-gray-200 focus-within:border-blue-500 focus-within:bg-white transition-all duration-300 w-full max-w-lg mx-6">
+                    class="hidden md:flex items-center bg-white/80 backdrop-blur-sm rounded-full overflow-hidden border border-blue-200/60 focus-within:border-blue-400 focus-within:bg-white focus-within:shadow-lg transition-all duration-300 w-full max-w-lg mx-6">
                     <input type="text" name="search" value="{{ request('search') }}"
                         placeholder="Cari berita atau informasi..."
                         class="flex-1 bg-transparent px-5 py-2.5 text-gray-700 text-sm outline-none placeholder:text-gray-400">
                     <button type="submit"
-                        class="bg-gradient-to-r from-blue-400 to-sky-400 text-white px-5 py-2.5 hover:from-blue-500 hover:to-sky-500 transition-all duration-300 font-medium shadow-sm">
+                        class="bg-gradient-to-r from-blue-500 to-sky-500 text-white px-5 py-2.5 hover:from-blue-600 hover:to-sky-600 transition-all duration-300 font-medium shadow-sm">
                         @svg('bi-search', 'w-4 h-4')
                     </button>
                 </form>
@@ -25,11 +28,11 @@
                 <!-- Mobile Buttons -->
                 <div class="flex items-center space-x-3 md:hidden">
                     <button @click="searchOpen = !searchOpen"
-                        class="p-2 rounded-full bg-gray-100 text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all">
+                        class="p-2 rounded-full bg-white/80 backdrop-blur-sm text-gray-600 hover:text-blue-600 hover:bg-white border border-blue-100/50 hover:border-blue-300 hover:shadow-md transition-all">
                         @svg('bi-search', 'w-5 h-5')
                     </button>
                     <button @click="isOpen = !isOpen"
-                        class="p-2 rounded-full bg-gray-100 text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all">
+                        class="p-2 rounded-full bg-white/80 backdrop-blur-sm text-gray-600 hover:text-blue-600 hover:bg-white border border-blue-100/50 hover:border-blue-300 hover:shadow-md transition-all">
                         <template x-if="!isOpen">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -48,13 +51,13 @@
 
             <!-- Mobile Search -->
             <div x-show="searchOpen" x-transition
-                class="md:hidden mt-2 border-t border-gray-100 pt-2 pb-4">
-                <form action="{{ route('home') }}" method="GET" class="flex bg-gray-100 rounded-full overflow-hidden shadow-inner">
+                class="md:hidden mt-2 border-t border-blue-100/50 pt-2 pb-4">
+                <form action="{{ route('home') }}" method="GET" class="flex bg-white/80 backdrop-blur-sm rounded-full overflow-hidden shadow-md border border-blue-200/60">
                     <input type="text" name="search" value="{{ request('search') }}"
                         placeholder="Cari berita..."
-                        class="flex-1 bg-transparent px-4 py-2 text-gray-700 outline-none">
+                        class="flex-1 bg-transparent px-4 py-2 text-gray-700 outline-none placeholder:text-gray-400">
                     <button type="submit"
-                        class="bg-gradient-to-r from-blue-400 to-sky-400 text-white px-4 py-2 hover:from-blue-500 hover:to-sky-500 transition-all shadow-sm">
+                        class="bg-gradient-to-r from-blue-500 to-sky-500 text-white px-4 py-2 hover:from-blue-600 hover:to-sky-600 transition-all shadow-sm">
                         @svg('bi-search', 'w-5 h-5')
                     </button>
                 </form>
@@ -216,16 +219,15 @@
         x-transition:leave="transition transform duration-250 ease-in"
         x-transition:leave-start="translate-x-0"
         x-transition:leave-end="translate-x-full"
-        class="fixed right-0 top-0 h-full w-80 bg-white shadow-2xl z-50 overflow-y-auto md:hidden"
+        class="fixed right-0 top-0 h-full w-80 bg-gradient-to-br from-white via-blue-50/20 to-sky-50/30 shadow-2xl z-50 overflow-y-auto md:hidden"
     >
         <!-- Header Sidebar - Simple & Clean -->
-        <div class="sticky top-0 bg-white border-b border-gray-100 px-6 py-5 z-10">
+        <div class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-blue-100/50 px-6 py-5 z-10">
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-3">
-                    <img src="{{ asset('assets/img/surawangi.png') }}" alt="SURAWANGI" class="h-9 w-auto object-contain">
-                    <span class="text-lg font-bold text-blue-600">.com</span>
+                    <img src="{{ asset('assets/img/surawangi.png') }}" alt="SURAWANGI" class="h-9 w-auto object-contain drop-shadow-sm">
                 </div>
-                <button @click="isOpen = false" class="text-gray-400 hover:text-gray-600 p-2 hover:bg-gray-100 rounded-lg transition-all duration-200">
+                <button @click="isOpen = false" class="text-gray-400 hover:text-gray-600 p-2 hover:bg-blue-50 rounded-lg transition-all duration-200">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -239,7 +241,7 @@
                 <!-- Beranda -->
                 <li>
                     <a href="{{ route('home') }}"
-                        class="flex items-center px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium">
+                        class="flex items-center px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-white/80 rounded-lg transition-all duration-200 font-medium backdrop-blur-sm">
                         Beranda
                     </a>
                 </li>
@@ -247,7 +249,7 @@
                 <!-- Profil -->
                 <li>
                     <a href="{{ route('profile.index') }}"
-                        class="flex items-center px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium">
+                        class="flex items-center px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-white/80 rounded-lg transition-all duration-200 font-medium backdrop-blur-sm">
                         Profil
                     </a>
                 </li>
@@ -255,20 +257,20 @@
                 <!-- Agenda -->
                 <li>
                     <a href="{{ route('news.index', 'agenda') }}"
-                        class="flex items-center px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium">
+                        class="flex items-center px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-white/80 rounded-lg transition-all duration-200 font-medium backdrop-blur-sm">
                         Agenda
                     </a>
                 </li>
 
                 <!-- Divider -->
                 <li class="py-2">
-                    <div class="border-t border-gray-100"></div>
+                    <div class="border-t border-blue-100/50"></div>
                 </li>
 
                 <!-- AKD Dropdown -->
                 <li x-data="{ openAKD: false }">
                     <button @click="openAKD = !openAKD"
-                        class="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium">
+                        class="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-white/80 rounded-lg transition-all duration-200 font-medium backdrop-blur-sm">
                         <span>AKD</span>
                         <svg class="w-4 h-4 transition-transform duration-200"
                             :class="{ 'rotate-180': openAKD }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -283,8 +285,8 @@
                         class="mt-1 ml-4 space-y-1">
                         @foreach (['komisi-1','komisi-2','komisi-3','komisi-4','rapat-khusus'] as $item)
                             <a href="{{ route('news.index', $item) }}"
-                                class="flex items-center px-4 py-2.5 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
-                                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 mr-3"></span>
+                                class="flex items-center px-4 py-2.5 text-sm text-gray-600 hover:text-blue-600 hover:bg-white/80 rounded-lg transition-all duration-200 backdrop-blur-sm">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-300 mr-3"></span>
                                 {{ Str::of($item)->replace('-', ' ')->title() }}
                             </a>
                         @endforeach
@@ -294,7 +296,7 @@
                 <!-- Kunjungan Tamu -->
                 <li>
                     <a href="{{ route('news.index', 'kunjungan-tamu') }}"
-                        class="flex items-center px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium">
+                        class="flex items-center px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-white/80 rounded-lg transition-all duration-200 font-medium backdrop-blur-sm">
                         Kunjungan Tamu
                     </a>
                 </li>
@@ -302,7 +304,7 @@
                 <!-- Fraksi -->
                 <li>
                     <a href="{{ route('news.index', 'fraksi') }}"
-                        class="flex items-center px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium">
+                        class="flex items-center px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-white/80 rounded-lg transition-all duration-200 font-medium backdrop-blur-sm">
                         Fraksi
                     </a>
                 </li>
@@ -310,7 +312,7 @@
                 <!-- Paripurna Dropdown -->
                 <li x-data="{ openParipurna: false }">
                     <button @click="openParipurna = !openParipurna"
-                        class="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium">
+                        class="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-white/80 rounded-lg transition-all duration-200 font-medium backdrop-blur-sm">
                         <span>Paripurna</span>
                         <svg class="w-4 h-4 transition-transform duration-200"
                             :class="{ 'rotate-180': openParipurna }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -325,8 +327,8 @@
                         class="mt-1 ml-4 space-y-1">
                         @foreach (['paripurna-eksternal','paripurna-internal'] as $item)
                             <a href="{{ route('news.index', $item) }}"
-                                class="flex items-center px-4 py-2.5 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
-                                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 mr-3"></span>
+                                class="flex items-center px-4 py-2.5 text-sm text-gray-600 hover:text-blue-600 hover:bg-white/80 rounded-lg transition-all duration-200 backdrop-blur-sm">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-300 mr-3"></span>
                                 {{ Str::of($item)->replace('paripurna-', '')->title() }}
                             </a>
                         @endforeach
@@ -335,13 +337,13 @@
 
                 <!-- Divider -->
                 <li class="py-2">
-                    <div class="border-t border-gray-100"></div>
+                    <div class="border-t border-blue-100/50"></div>
                 </li>
 
                 <!-- Akun -->
                 <li>
                     <a href="{{ route('filament.admin.pages.dashboard') }}"
-                        class="flex items-center px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium">
+                        class="flex items-center px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-white/80 rounded-lg transition-all duration-200 font-medium backdrop-blur-sm">
                         Akun
                     </a>
                 </li>

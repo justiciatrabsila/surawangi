@@ -11,7 +11,7 @@
             <div class="lg:col-span-5">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center">
-                        <span class="text-2xl font-bold">S</span>
+                        <span class="text-2xl font-bold">A</span>
                     </div>
                     <h3 class="text-2xl font-bold">SURAWANGI</h3>
                 </div>
@@ -35,7 +35,7 @@
             <div class="lg:col-span-3">
                 <h3 class="text-lg font-bold mb-6 flex items-center gap-2">
                     <div class="w-1 h-6 bg-gradient-to-b from-blue-600 to-blue-400 rounded-full"></div>
-                    Berita Mengenai Rapat
+                    Kategori Berita
                 </h3>
 
                 <div class="space-y-3" x-data="{ openAKD: false, openParipurna: false }">
