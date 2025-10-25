@@ -66,7 +66,7 @@
     </header>
 
     <!-- NAV MENU - ELEGANT LIGHT BLUE WITH TRANSPARENCY -->
-    <nav class="bg-gradient-to-r from-blue-400/90 via-sky-400/90 to-cyan-400/90 backdrop-blur-md sticky top-[76px] z-40 shadow-lg border-b border-white/20">
+    <nav class="bg-gradient-to-r from-purple-500/90 via-pink-500/90 to-rose-400/90 backdrop-blur-md sticky top-[76px] z-40 shadow-lg border-b border-white/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ul class="hidden md:flex items-center justify-center space-x-1">
                 <!-- Beranda -->
