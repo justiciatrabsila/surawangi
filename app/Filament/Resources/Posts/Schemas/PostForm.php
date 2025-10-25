@@ -38,7 +38,7 @@ class PostForm
                         '1:1',
                     ])
                     ->openable()
-                    ->maxSize(5192)
+                    ->maxSize(10240)
                     ->disk('public')
                     ->directory('post-thumbnail')
                     ->visibility('public')

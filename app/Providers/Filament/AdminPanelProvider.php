@@ -31,7 +31,7 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->brandName('Surawangi')
             ->brandLogo(asset('assets/img/surawangi.png'))
-            ->favicon(asset('assets/img/logo.png')) // ✅ ganti favicon “B” jadi logo kamu
+            ->favicon(asset('assets/img/logo.png'))
             ->brandLogoHeight('2.2rem')
             ->homeUrl(url('/'))
             ->colors([

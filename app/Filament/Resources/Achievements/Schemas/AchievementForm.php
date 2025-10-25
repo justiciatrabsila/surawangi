@@ -29,7 +29,7 @@ class AchievementForm
                         '1:1',
                     ])
                     ->openable()
-                    ->maxSize(5192)
+                    ->maxSize(10240)
                     ->disk('public')
                     ->directory('achievement-photo')
                     ->visibility('public')

@@ -39,26 +39,101 @@
             </div>
         </div>
 
-        <div class="space-y-6">
-            <img src="{{ asset('assets/img/berempat.png') }}" alt="Tim SURAWANGI"
-                class="w-full h-80 object-cover rounded-2xl shadow-2xl hover:scale-[1.02] transition-transform duration-300">
+        <div class="space-y-8">
+            <!-- Hero Image dengan Overlay Gradient -->
+            <div class="relative group overflow-hidden rounded-3xl shadow-2xl">
+                <img src="{{ asset('assets/img/berempat.png') }}" alt="Tim SURAWANGI"
+                    class="w-full h-96 object-cover transition-all duration-700 group-hover:scale-110">
 
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div class="bg-gradient-to-br from-primary to-accent text-white rounded-xl p-5 text-center shadow-lg">
-                    <div class="text-3xl font-bold">5+</div>
-                    <div class="text-xs opacity-90">Tahun Pengalaman</div>
+                <!-- Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
+
+                <!-- Floating Badge -->
+                <div class="absolute top-6 right-6 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
+                    <p class="text-xs font-semibold text-primary">Sejak 2025</p>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-5 text-center shadow-sm hover:shadow-md transition">
-                    <div class="text-3xl font-bold text-primary">10K+</div>
-                    <div class="text-xs text-gray-600">Artikel Dipublikasi</div>
+
+                <!-- Bottom Text Overlay -->
+                <div class="absolute bottom-6 left-6 right-6">
+                    <h3 class="text-white text-2xl font-bold mb-1 drop-shadow-lg">Tim Profesional Kami</h3>
+                    <p class="text-white/90 text-sm drop-shadow-md">Dedikasi untuk Jurnalisme Berkualitas</p>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-5 text-center shadow-sm hover:shadow-md transition">
-                    <div class="text-3xl font-bold text-primary">50K+</div>
-                    <div class="text-xs text-gray-600">Pembaca Aktif</div>
+            </div>
+
+            <!-- Stats Grid dengan Animasi Modern -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Stat Card 1 -->
+                <div class="group relative bg-gradient-to-br from-primary via-primary to-accent text-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
+                    <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
+                                @svg('heroicon-o-calendar', 'w-5 h-5')
+                            </div>
+                            <div class="w-2 h-2 bg-white/60 rounded-full animate-pulse"></div>
+                        </div>
+                        <div class="text-4xl font-bold mb-1">5+</div>
+                        <div class="text-sm opacity-90 font-medium">Tahun Pengalaman</div>
+                    </div>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-5 text-center shadow-sm hover:shadow-md transition">
-                    <div class="text-3xl font-bold text-primary">8</div>
-                    <div class="text-xs text-gray-600">Kategori Berita</div>
+
+                <!-- Stat Card 2 -->
+                <div class="group relative bg-white border border-gray-200 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-primary/30 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                                @svg('heroicon-o-document-text', 'w-5 h-5 text-primary')
+                            </div>
+                            <div class="w-2 h-2 bg-primary/40 rounded-full"></div>
+                        </div>
+                        <div class="text-4xl font-bold text-primary mb-1">10K+</div>
+                        <div class="text-sm text-gray-600 font-medium">Artikel Dipublikasi</div>
+                    </div>
+                </div>
+
+                <!-- Stat Card 3 -->
+                <div class="group relative bg-white border border-gray-200 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-primary/30 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                                @svg('heroicon-o-users', 'w-5 h-5 text-accent')
+                            </div>
+                            <div class="w-2 h-2 bg-accent/40 rounded-full"></div>
+                        </div>
+                        <div class="text-4xl font-bold text-accent mb-1">50K+</div>
+                        <div class="text-sm text-gray-600 font-medium">Pembaca Aktif</div>
+                    </div>
+                </div>
+
+                <!-- Stat Card 4 -->
+                <div class="group relative bg-white border border-gray-200 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-primary/30 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                                @svg('heroicon-o-square-3-stack-3d', 'w-5 h-5 text-primary')
+                            </div>
+                            <div class="w-2 h-2 bg-primary/40 rounded-full"></div>
+                        </div>
+                        <div class="text-4xl font-bold text-primary mb-1">8</div>
+                        <div class="text-sm text-gray-600 font-medium">Kategori Berita</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Bar atau Trust Indicator -->
+            <div class="bg-gradient-to-r from-gray-50 to-white border border-gray-100 rounded-2xl p-6 shadow-sm">
+                <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-3">
+                        @svg('heroicon-o-chart-bar', 'w-6 h-6 text-primary')
+                        <span class="font-semibold text-gray-900">Pertumbuhan Pembaca</span>
+                    </div>
+                    <span class="text-sm font-bold text-green-600">+24% bulan ini</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                    <div class="bg-gradient-to-r from-primary to-accent h-full rounded-full shadow-inner" style="width: 76%"></div>
                 </div>
             </div>
         </div>
