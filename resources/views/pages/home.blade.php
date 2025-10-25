@@ -17,7 +17,7 @@
     <section class="py-24 bg-gradient-to-b from-white to-blue-50/30">
         <div data-aos="fade-up" class="text-center mb-16">
             <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
-                Telusuri <span class="text-blue-600">Topik Berita</span>
+                Telusuri <span class="text-purple-600">Topik Berita</span>
             </h2>
             <p class="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
                 Informasi terkini dan terlengkap seputar kegiatan DPRD Kabupaten Banyuwangi
