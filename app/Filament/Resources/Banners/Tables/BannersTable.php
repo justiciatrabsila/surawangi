@@ -24,7 +24,8 @@ class BannersTable
                 ImageColumn::make('thumbnail')
                     ->label('Gambar')
                     ->square()
-                    ->disk('public'),
+                    ->disk('public')
+                    ->url(fn ($record) => asset('storage/' . $record->thumbnail)),
                 SelectColumn::make('page_type')
                     ->label('Halaman')
                     ->rules(['required'])

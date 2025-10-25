@@ -1,17 +1,14 @@
 <?php
 
-namespace Database\Seeders;
+namespace App\Models;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class MenuSeeder extends Seeder
+class Menu extends Model
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
-    {
-        //
-    }
+    use HasFactory;
+
+    protected $fillable = ['name', 'url', 'parent_id', 'order'];
 }
+
